@@ -1,0 +1,179 @@
+\chapter{Methods}
+\label{chapter:methods}
+\thispagestyle{myheadings}
+
+% set this to the location of the figures for this chapter. it may
+% also want to be ../Figures/2_Body/ or something. make sure that
+% it has a trailing directory separator (i.e., '/')!
+\graphicspath{{2_Body/Figures/}}
+
+\section{Study 1: Evaluation of propulsion metrics on long distance walking function}
+\label{sec:study1}
+%TODO: fill inclusion/exclusion criteria
+Thirty individuals with poststroke hemiparesis were recruited for studies done at Boston University (Table \ref{table:participant_data1}).
+Study inclusion criteria included: [fill].
+Exclusion criteria included: [fill].
+All study procedures were approved by the Institutional Review Board of Boston University.
+Written informed consent was secured from all study participants prior to initiation of study procedures.
+
+%TODO: fill participant data table
+\begin{table}[h]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+			Participant Number & Side of Paresis & Stroke Onset (y) & Sex & Age (y) & Height (cm) & Weight (kg) \\
+			\hline
+			\hline
+		\end{tabular}}
+	\caption{Study 1 Participant Data}
+	\label{table:participant_data1}
+\end{table}
+
+For this study, participants were excluded if they did not have a propulsion phase, defined as the crossing of the APGRF curve from a negative to positive value, indicating the transition from braking to propulsion, begining near the midpoint of the stance phase and ending with the termination of contact.
+Additionally, a minimum of 10 paretic strides of sufficent quality were necessary. \par
+
+
+At the start of each visit, participants completed a standing static trial to calibrate the 18-camera optical motion capture system (Qualysis) and a 10 meter walk test to determine comfortable walking speed.
+The total distance walked during the 6MWT served as the primary clinical outcome.
+All walking was performed around a 26.6m oval indoor track consisting of two 10m straights with 3.3m turns on either end.
+One of the 10m straits included six overground forceplates (Bertec) which constituted the capture area.
+Motion capture data was collected at 200Hz and filtered at 10Hz using a second-order Butterworth filter.
+Using MATLAB 2019a (Mathworks), strides were combined across all passes to create the data sets for each participant.
+Each stride was normalized to percent body weight (\%bw) and percent stance time (\%st, defined as the duration of the stance phase, from initial contact to final contact).
+From this, the following metrics were calculated (Table \ref{table:calculated_propulsion_metrics}).
+
+
+\begin{table}[h]
+	\centering
+	% \resizebox{\textwidth}{!}{
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Metric            & Definition                     & Units \\
+		\hline
+		Braking Onset     & Beginning of braking phase     & \%SP  \\
+		\hline
+		Peaking Magnitude & Maximum braking force          & \%BW  \\
+		\hline
+		Peak Timing       & Timing of peak magnitude       & \%SP  \\
+		\hline
+		Impulse           & Total braking force            & -     \\
+		\hline
+		Total Time        & Time spent in braking phase    & \%SP  \\
+		\hline
+		Propulsion Onset  & Beginning of propulsion phase  & \%SP  \\
+		\hline
+		Peaking Magnitude & Maximum propulsion force       & \%BW  \\
+		\hline
+		Peak Timing       & Timing of peak magnitude       & \%SP  \\
+		\hline
+		Impulse           & Total propulsion force         & -     \\
+		\hline
+		Total Time        & Time spent in propulsion phase & \%SP  \\
+		\hline
+	\end{tabular}%}
+	\caption{Calculated Propulsion Metrics}
+	\label{table:calculated_propulsion_metrics}
+\end{table}
+
+Using MATLAB 2019a, bivariate relationships between the propulsion metrics and 6MWT distance were evaluated.
+Using the ‘stepwiselm’ function in MATLAB, a forward stepwise regression was preformed: an F test was performed between the metrics and 6MWT, and the metric with the largest F-score was added to the model – provided that it’s p-value was below 0.05.
+The F tests were then repeated on all the remaining metrics with this resulting model, adding metrics only when their inclusion was measured as significant. \par
+The above was performed three separate times with different sets of metrics: only propulsion metrics from the paretic limb; propulsion and braking metrics from the paretic limb; and propulsion and braking metrics from both the paretic and nonparetic limb.
+The resulting models were then graphed to visualize their fit with the data. \par
+
+
+\section{Study 2: Validation of wearable sensor for use in estimating poststroke propulsion in the clinic}
+\label{sec:study2}
+\subsection{Participants}
+
+Data was collected as part of a study at the Neuromotor Recovery Laboratory at Boston Universtiy.
+Seven individuals with chronic poststroke hemiparesis participated (Table \ref{table:participant_data2}).
+Study inclusion criteria included: being greater than six months after stroke, ambulatory but with residual gait deficits, and having the ability to walk on a treadmill without orthotic support. Study exclusion criteria included: cerebellar stroke, lower extremity joint replacement or other orthopaedic conditions that change walking ability, pain that limits walking ability, inability to communicate with investigators, neglect or hemianopia, or unexplained dizziness, and more than two falls in the previous month.
+All study procedures were approved by the Institutional Review Board of Boston University.
+Written informed consent was secured from all study participants prior to initiation of study procedures. \par
+%TODO: fill participant data table
+\begin{table}[h]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+			Participant Number & Side of Paresis & Stroke Onset (y) & Sex & Age (y) & Height (cm) & Weight (kg) \\
+			\hline
+			\hline
+		\end{tabular}}
+	\caption{Study 2 Participant Data}
+	\label{table:participant_data2}
+\end{table}
+
+
+\subsection{Data Collection}
+Participants were performed 10-Meter Walk Tests, conducted by licensed physical therapists, to obtain their self-selected walking speed (i.e. comfortable walking speed, CWS).
+Kinetic data was collected during two separate 2-minute bouts of treadmill walking at 80\% of their comfortable walking speed, as per study protocols.
+Ground reaction forces (GRFs) were collected using a dual-belt instrumented treadmill with 2 independent 6-degree of freedom force platforms (Bertec Corporation, Worthington, OH) sampling at 2000 Hz. \par
+
+Kinematic data were captured by an 18-camera motion capture system (Qualisys, Göteborg, Sweden) based on the motion of reflective markers (Figure \ref{fig:marker_placement}).
+Single ‘landmark’ markers were placed to establish anatomy, including: the first and fifth metatarsals; the medial and lateral malleoli; the medial and lateral femoral condyles; the greater trochanters; the anterior superior iliac spines; and the iliac crests.
+Multiple ‘cluster’ markers were placed to track the motion of the body segments, including: the pelvis, the upper legs (thighs), and the lower legs (shanks); two markers will also be placed on the heel to create a cluster with the metatarsal markers.
+All markers were sampled at a rate of 200 Hz.
+
+\begin{figure}[t]
+	\includegraphics{Marker_Placement.png}
+	\centering
+	\caption{Motion Capture Marker Placement}
+	\label{fig:marker_placement}
+\end{figure}
+
+A total of 7 IMUs (Xsens Technologies B.V., Enschede, Netherlands), sampling at 100 Hz, were collected concurrently with the motion capture data.
+They were placed on the pelvis, as well as bilaterally on the thigh, shank and foot segments (Figure \ref{fig:imu_placement}).
+
+\begin{figure}[t]
+	\includegraphics{IMU_Placement.png}
+	\centering
+	\caption{IMU Placement}
+	\label{fig:imu_placement}
+\end{figure}
+
+\subsection{Data Processing}
+
+Marker motion capture data were cleaned in Qualysis Track Manager; marker and force plate data were filtered in Visual3D using a bi-directional Butterworth low pass filter at 30 Hz, then entered into MATLAB for further processing.
+Using MATLAB 2019a (Mathworks, Natick, MA), the total number of strides per participant were combined across both walking bouts.
+Each stride will be normalized to percent body weight (\%bw) as per the literature, and percent stance time (\%st, defined as the duration of the stance phase, from initial contact to final contact); the latter decision was made to better focus future analysis on the effects of propulsion, regardless of other factors in the gait cycle, as well as its common use by clinicians.
+Propulsion metrics found to be significant as part of Study 1 were also calculated. \par
+
+The IMU data were cleaned and filtered in MATLAB, then conducted into features for use in the machine learning algorithm (Table \ref{table:imu_features}).
+Univariate feature ranking examined the importance of each predictor individually using an F-test, and then ranked features using the p-values of the F-test statistics, an alpha of 0.05 determining inclusion in the model.
+Once obtained, these features were used to train and test supervised models using linear regression and Stochastic Gradient Descent; 70\% of the data used for training and 30\% for testing to determine the generalization of the model.
+This process was completed for both the propulsion metrics, as well as for the APGRF curve. \par
+
+
+\begin{table}[h]
+	\centering
+	% \resizebox{\textwidth}{!}{
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Source        & Definition          & Directions & Features \\
+		\hline
+		Accelerometer & Linear accelertaion & X, Y, Z    & 3        \\
+		\hline
+		Gyroscope     & Angular veolicty    & X, Y, Z    & 3        \\
+		\hline
+	\end{tabular}%}
+	\caption{IMU Features}
+	\label{table:imu_features}
+\end{table}
+
+For the first aim, the inputs to the model were the features listed in Table \ref{table:imu_features}; the response variable will be the metrics calculated in the first study (\ref{table:calculated_propulsion_metrics}).
+For the second aim, the inputs to the model will be the features listed in Table \ref{table:imu_features}; the response variable will be the APGRF time series curve taken from the gold standard, i.e. the instrumented treadmill.
+
+\subsection{Statistical Analysis}
+To determine the performance of the propulsion metrics model, root mean squared error (RMSE) and mean absolute percent error (MAPE) were used; these, as well as \(R^{2}\), were used to measure the performance of the APGRF model.
+RMSE measures the average of the squared difference between the predictions and the ground truth, allowing for the detection of outliers; MAPE is the absolute value of the percent difference between the predictions and the ground truth; \(R^{2}\) uses the regression and total sum of squares to determine the variance between the model and a linear model. \par
+%TODO: get version of scikit-learn
+To test the hypothesis that the IMU based algorithm will accurately estimate propulsion metrics against the gold standard, the features selected for this purpose were used to train a LinearRegression model from the scikit-learn (verison) package in Python (3.13.2); propulsion metrics taken from the gold standard of force plate data will be used as the response variable.
+Ideally, RMSE and MAPE will be below 5\%.
+The same model was then compared to those in the literature, with performance metrics as well as features used to construct the models being analyzed. \par
+
+To test the hypothesis that the IMU based algorithm accurately estimates the APGRF time series curve versus the gold standard, the features selected for this purpose were used to train a SGDRegressor model from the scikit-learn package in Python (3.13.2); the APGRF time series curve taken from the gold standard of force plate data will be used as the response variable.
+Ideally, RMSE and MAPE will be below 5\%; \(R^{2}\) will be above 0.9.
+The same model was then compared to those in the literature, with performance metrics as well as features used to construct the models being analyzed. \par

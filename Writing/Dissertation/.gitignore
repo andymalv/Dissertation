@@ -1,0 +1,16 @@
+*.pdf
+*.docx
+*.aux
+*.log
+ex_*
+*.fdb*
+*.bbl
+*.blg
+*.dvi
+*.fls
+*.lof
+*.lot
+*.out
+*.ps
+*.gz
+*.toc

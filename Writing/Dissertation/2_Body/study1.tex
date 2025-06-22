@@ -1,0 +1,284 @@
+\chapter{Evaluation of propulsion metrics on long distance walking function}
+\label{chapter:study1}
+\thispagestyle{myheadings}
+
+% set this to the location of the figures for this chapter. it may
+% also want to be ../Figures/2_Body/ or something. make sure that
+% it has a trailing directory separator (i.e., '/')!
+\graphicspath{{2_Body/Figures/}}
+
+\section{Introduction}
+Stroke is a leading cause of disability that results in neuromotor impairments that contribute to slower and more inefficient walking.
+As a consequence, walking rehabilitation is a major focus after stroke.
+The 6MWT is a popular outcome measure used to assess functional walking capacity after stroke; however, the performance-based metrics often evaluated, such as the total distance walked, do not identify the underlying neuromotor impairment.
+Insight into the biomechanical contributors to reduced 6MWT performance is necessary for the advancement of individualized rehabilitation interventions that target specific deficits limiting function. \par
+
+Biomechanical variables such as peak propulsion (the peak of the anterior ground reaction force) and propulsion impulse (the integral of the anterior ground reaction force) have been shown to contribute to walking function after stroke \citep{Awad2015, Alvarez2020a}; however, these magnitude-based metrics do not account for key temporal aspects of propulsion function that may affect walking after stroke, such as the timing of peak propulsion \citep{Kuhman2019}.
+Also, there may be other metrics of the APGRF curve that contribute to walking function after stroke that are not currently considered. \par
+
+The objective of this study is to determine which APGRF curve metrics most contribute to 6MWT performance and thus walking function after stroke.
+In order to reduce bias towards current biomechanical understandings, no metrics will be chosen a priori; instead, a statistical approach will be taken to select those metrics that are the most relevant in explaining 6MWT performance. \par
+
+
+\section{Methods}
+\subsection{Participants}
+%TODO: fill inclusion/exclusion criteria
+Data was collected as part of studies done at the Neuromotor Recovery Laboratory at Boston University.
+Thirty individuals with poststroke hemiparesis were recruited (Table \ref{table:participant_data1}).
+Study inclusion criteria included: being greater than six months after stroke, ambulatory but with residual gait deficits, and having the ability to walk on a treadmill without orthotic support. Study exclusion criteria included: cerebellar stroke, lower extremity joint replacement or other orthopedic conditions that change walking ability, pain that limits walking ability, inability to communicate with investigators, neglect or hemianopia, or unexplained dizziness, and more than two falls in the previous month.
+All study procedures were approved by the Institutional Review Board of Boston University.
+Written informed consent was secured from all study participants prior to initiation of study procedures.
+
+%TODO: fill participant data table
+\begin{table}[h]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+			\textbf{Participant ID} & \textbf{Side of Paresis} & \textbf{Stroke Onset (y)} & \textbf{Sex} & \textbf{Age (y)} & \textbf{Height (cm)} & \textbf{Weight (kg)} \\
+			\hline
+			01                      & Right                    & 10                        & M            & 39               & 179.1                & 77.1                 \\
+			\hline
+			02                      & Left                     & 8                         & M            & 61               & 179.1                & 73.7                 \\
+			\hline
+			03                      & Left                     & 15                        & M            & 49               & 176.8                & 85.14                \\
+			\hline
+			04                      & Right                    & 6                         & M            & 61               & 173.6                & 98.0                 \\
+			\hline
+			05                      & Right                    & 6                         & M            & 35               & 183.0                & 93.2                 \\
+			\hline
+			06                      & Right                    & 4                         & M            & 56               & 179.5                & 88.0                 \\
+			\hline
+			07                      & Left                     & 7                         & M            & 78               & 178.5                & 102.9                \\
+			\hline
+			08                      & Right                    & 2                         & M            & 65               & 171.5                & 77.1                 \\
+			\hline
+			09                      & Left                     & 6                         & M            & 62               & 176.0                & 99.8                 \\
+			\hline
+			10                      & Right                    & 3                         & M            & 62               & 173.5                & 85.1                 \\
+			\hline
+			11                      & Left                     & 1                         & M            & 67               & 184.3                & 88.5                 \\
+			\hline
+			12                      & Left                     & 2                         & M            & 47               & 179.8                & 107.6                \\
+			\hline
+			13                      & Left                     & 6                         & F            & 52               & 161.8                & 45.4                 \\
+			\hline
+			14                      & Left                     & 5                         & M            & 46               & 178.9                & 74.4                 \\
+			\hline
+			15                      & Left                     & 6                         & M            & 65               & 165.5                & 78.0                 \\
+			\hline
+			16                      & Left                     & 9                         & F            & 42               & 164.3                & 66.7                 \\
+			\hline
+			17                      & Right                    & 11                        & M            & 67               & 165.4                & 66.7                 \\
+			\hline
+			18                      & Right                    & 1                         & M            & 62               & 181.8                & 95.3                 \\
+			\hline
+			19                      & Right                    & 4                         & F            & 60               & 165.4                & 66.2                 \\
+			\hline
+			20                      & Right                    & 4                         & M            & 78               & 173.7                & 78.7                 \\
+			\hline
+			21                      & Left                     & 5                         & M            & 55               & 185.7                & 95.7                 \\
+			\hline
+		\end{tabular}}
+	\caption{Study 1 Participant Data}
+	\label{table:participant_data1}
+\end{table}
+%NOTE: may need to reword this 
+As an additional exclusion criteria, participants were excluded if they did not have a propulsion phase, defined as the crossing of the APGRF curve from a negative to positive value, indicating the transition from braking to propulsion, beginning near the midpoint of the stance phase and ending with the termination of contact.
+Additionally, a minimum of 10 paretic strides of sufficient quality were necessary. \par
+
+\subsection{Data Collection}
+Kinematic data were captured by an 18-camera motion capture system (Qualisys, Göteborg, Sweden) based on the motion of reflective markers (Figure \ref{fig:marker_placement_study1}).
+Single ‘landmark’ markers were placed to establish anatomy, including: the first and fifth metatarsals; the medial and lateral malleoli; the medial and lateral femoral condyles; the greater trochanters; the anterior superior iliac spines; and the iliac crests.
+Multiple ‘cluster’ markers were placed to track the motion of the body segments, including: the pelvis, the upper legs (thighs), and the lower legs (shanks); two markers were also placed on the heel to create a cluster with the metatarsal markers.
+All markers were sampled at a rate of 200 Hz. \par
+Kinetic data were captured using 6 inground force platforms, each with 6-degrees of freedom (Bertec Corporation, Worthington, OH), placed on a 10m strait and sampling at 2000 Hz.
+At the start of each visit, participants completed a standing static trial on top for the inground force plates to record their body mass and calibrate the motion capture system.
+The primary clinical outcome was total distance walked during the 6MWT, conducted by licensed physical therapists, performed around a 26.6m oval indoor track consisting of two 10m straight with 3.3m turns on either end. \par
+
+\begin{figure}[t]
+	\includegraphics{Marker_Placement.png}
+	\centering
+	\caption{Motion Capture Marker Placement}
+	\label{fig:marker_placement_study1}
+\end{figure}
+
+\subsection{Data Processing}
+Marker motion capture data were cleaned in Qualysis Track Manager; marker and force plate data were filtered in Visual3D using a bi-directional Butterworth low pass filter at 10 Hz, then entered into MATLAB for further processing.
+Using MATLAB 2019a (Mathworks), strides were combined across all passes to create the data sets for each participant.
+Each stride was normalized to percent body weight (\%BW) as per the literature, and percent stance time (\%SP, defined as the duration of the stance phase, from initial contact to final contact).
+From this, the following metrics were calculated (Table \ref{table:calculated_propulsion_metrics}).
+
+
+\begin{table}[h]
+	\centering
+	% \resizebox{\textwidth}{!}{
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Metric}   & \textbf{Definition}            & \textbf{Units} \\
+		\hline
+		Braking Onset     & Beginning of braking phase     & \%SP           \\
+		\hline
+		Peaking Magnitude & Maximum braking force          & \%BW           \\
+		\hline
+		Peak Timing       & Timing of peak magnitude       & \%SP           \\
+		\hline
+		Impulse           & Total braking force            & -              \\
+		\hline
+		Total Time        & Time spent in braking phase    & \%SP           \\
+		\hline
+		Propulsion Onset  & Beginning of propulsion phase  & \%SP           \\
+		\hline
+		Peaking Magnitude & Maximum propulsion force       & \%BW           \\
+		\hline
+		Peak Timing       & Timing of peak magnitude       & \%SP           \\
+		\hline
+		Impulse           & Total propulsion force         & -              \\
+		\hline
+		Total Time        & Time spent in propulsion phase & \%SP           \\
+		\hline
+	\end{tabular}%}
+	\caption{Calculated Propulsion Metrics}
+	\label{table:calculated_propulsion_metrics}
+\end{table}
+
+\subsection{Statistical Analysis}
+Using MATLAB 2019a, bivariate relationships between the propulsion metrics and 6MWT distance were evaluated.
+Using the ‘stepwiselm’ function in MATLAB, a forward stepwise regression was preformed: an F test was performed between the metrics and 6MWT, and the metric with the largest F-score was added to the model – provided that it’s p-value was below 0.05.
+The F tests were then repeated on all the remaining metrics with this resulting model, adding metrics only when their inclusion was measured as significant. \par
+The above was performed three separate times with different sets of metrics: only propulsion metrics from the paretic limb; propulsion and braking metrics from the paretic limb; and propulsion and braking metrics from both the paretic and nonparetic limb.
+The resulting models were then graphed to visualize their fit with the data. \par
+
+\section{Results}
+\begingroup
+\begin{figure}[H]
+	\includegraphics{study1_1.png}
+	\\
+	\centering
+	% \centering
+	\label{fig:study1_1}
+	% \begin{table}[hp]
+	% \centering
+	% \textbf{6MWT ~ PareticPeakPropulsionMagnitude} \\
+	\vspace{5mm}
+	\begin{tabular}{l|c|c|c|c}
+		                               & Estimate  & SE              & tStat & p-value        \\
+		\hline
+		Intercept                      & 153.04    & 46.79           & 3.27  & \textless 0.01 \\
+		PareticPeakPropulsionMagnitude & 18.37     & 4.77            & 3.85  & \textless 0.01 \\
+		\\
+		Model                          & \(R^{2}\) & \(_{adj}R^{2}\) & RMSE                   \\
+		\hline
+		1                              & 0.43      & -               & 88.45                  \\
+		\label{table:study1_1}
+	\end{tabular}
+	\caption{6MWT distance as predicted by Peak Propulsion Magnitude of paretic limb.}
+	\centering
+	% \end{table}
+\end{figure}
+
+The first model was performed using only propulsion metrics from the paretic limb.
+The stepwise model deemed the peak propulsion magnitude as the most important metric, as it alone explains 43\% of the variance in 6MWT performance.
+No other metrics were added to this model, as it was determined that their addition would not be significant. \par
+\endgroup
+
+\begin{figure}[H]
+	\includegraphics{study1_2.png}
+	\centering
+	% \centering
+	\label{fig:study1_2}
+	% \begin{center}
+	% \textbf{6MWT ~ PareticPeakBrakingMagnitude} \\
+	\vspace{5mm}
+	\begin{tabular}{l|c|c|c|c}
+		                            & Estimate  & SE              & tStat & p-value        \\
+		\hline
+		Intercept                   & 75.90     & 46.32           & 1.64  & 0.12           \\
+		PareticPeakBrakingMagnitude & -18.11    & 3.16            & -5.73 & \textless 0.01 \\
+		\\
+		Model                       & \(R^{2}\) & \(_{adj}R^{2}\) & RMSE                   \\
+		\hline
+		1                           & 0.61      & -               & 74.97                  \\
+		\label{table:study1_2}
+	\end{tabular}
+	\caption{6MWT distance as predicted by Peak Braking Magnitude of paretic limb.}
+	\centering
+	% \end{center}
+\end{figure}
+
+
+For the second model, both propulsion and braking metrics of the paretic limb were allowed to be chosen.
+The stepwise model deemed the peak braking magnitude as the most important metrics, as it alone explains 61\% of the variance in 6MWT performance.
+No other metrics were added to this model, as it was determined that their addition would not be significant. \par
+
+% \begin{center}
+\begin{figure}[H]
+	\includegraphics{study1_3.png}
+	\centering
+	% \caption{6MWT distance as predicted by Braking Impulse of nonparetic limb.}
+	% \centering
+	\label{fig:study1_3}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics{Study1_4.png}
+	\centering
+	\label{fig:study1_4}
+	% \end{figure}
+
+	% \caption{6MWT distance as predicted by interaction between Peak Braking Magnitude of the paretic limb and Brakign Impulse of the nonparetic limb.}
+	% \end{center}
+	% \end{figure}
+
+	% \textbf{6MWT ~ NonpareticBrakingImpulse + PareticPeakBrakingMagnitude}         \\
+	% \begin{table}[hbt!]
+	\vspace{5mm}
+	\begin{tabular}{l|c|c|c|c}
+		                            & Estimate  & SE              & tStat & p-value        \\
+		\hline
+		Intercept                   & 84.75     & 43.85           & 1.93  & 0.07           \\
+		NonpareticBrakingImpulse    & -80.24    & 13.67           & -5.87 & \textless 0.01 \\
+		\\
+		                            & Estimate  & SE              & tStat & p-value        \\
+		\hline
+		Intercept                   & 35.97     & 41.95           & 0.86  & 0.40           \\
+		NonpareticBrakingImpulse    & -10.47    & 3.76            & -2.79 & 0.01           \\
+		PareticPeakBrakingMagnitude & -48.38    & 16.49           & -2.94 & 0.01           \\
+		\\
+		Model                       & \(R^{2}\) & \(_{adj}R^{2}\) & RMSE                   \\
+		\hline
+		1                           & 0.62      & -               & 73.86                  \\
+		2                           & 0.73      & 0.70            & 64.22                  \\
+		\label{table:study1_3}
+		\centering
+	\end{tabular}
+	\caption{6MWT distance as predicted by interaction between Peak Braking Magnitude of the paretic limb and Braking Impulse of the nonparetic limb.}
+	% \end{table}
+\end{figure}
+
+For the final model, propulsion and braking metrics of both the paretic and nonparetic limb were allowed to be chosen.
+The stepwise model first selected the nonparetic braking impulse, as it alone explains 62\% of the variance in 6MWT performance.
+Next, the model selected paretic peak braking magnitude, as its addition increased the model's ability to explain the variance in 6MWT performance to 70\%.
+No other metrics were added to this model, as it was determined that their addition would not be significant. \par
+
+\section{Discussion}
+The goal of this study was to allow a statistical method, particularly a stepwise linear regression model, to select the most significant features of the APGRF curve that were most significant in explaining 6MWT distance. This would allow human bias to be as removed as possible, and potentially statistically validating the prevailing literature claiming that paretic propulsion is one of the most important factors in long distance walking function poststroke. \par
+
+The results of this study show that, when limiting the choices to those of propulsion metrics in the paretic limb, a stepwise linear regression model selects peak propulsion magnitude as the most significant variable and does not include another.
+This follows previous work in the literature, though differs slightly from preliminary work of this study
+\citep{Alvarez2020a}. %TODO: cite ASB2020 poster
+In said work, peak propulsion magnitude explained less of the variance than in the current work ((R^{2}\)) = 0.37 vs 0.43); however, including peak propulsion timing and its interaction with peak propulsion force lifts it above the results of the current work. \par
+
+Interestingly, when allowing braking metrics to be selected, the stepwise linear regression model found that peak braking magnitude was superior at explaining the variance than any propulsion metric.
+In fact, peak propulsion braking magnitude alone performed better (R^{2}\) = 0.61) than the combined model of peak propulsion magnitude and propulsion timing found in the previous study.
+Further, when allowing selection of propulsion and braking metrics from either limb, the stepwise linear regression model found that nonparetic braking impulse as well as paretic peak braking magnitude offered the best explanation of the variance (R^{2}\) = 0.70). \par
+
+This differs greatly not only from the preliminary work, but from the majority of the literature, which focuses primarily on propulsion of the paretic limb.
+This is understandable, as the biomechanics of walking, as currently understood, relies on the idea that it is the propulsion of the trailing limb that moves the body forward.
+While this likely remains true, this work shows that braking must also be addressed.
+This follows biomechanically: if one were to increase their propulsion without also increasing their ability to brake, they would likely fall; they must then reduce their propulsion to be more in line with their braking ability.
+Addressing both propulsion production and braking ability may then lead to greater rehabilitation outcomes. \par
+
+To strengthen the conclusion of this study, more data should be examined.
+Also, as the population and walking conditions examined are of a specific kind, the results of these studies may not be suitable for consideration in other populations or in lower-level walkers in the poststroke population.
+Finally, while allowing for the most prominent features to be selected via a statistical method can reduce human bias, the features were derived by a human; therefore, it should not be assumed that these results are completely free from bias. \par
