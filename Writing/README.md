@@ -12,7 +12,8 @@
 ├── 3_Conclusions      <- Conclusion (Ch. 4)
 ├── 4_Appendix         <- Appendix (code, bibliography)
 │
-└── thesis.bib         <- Bibliography file
+├── thesis.bib         <- Bibliography file
+└── thesis.pdf         <- PDF of submitted dissertation
 
 ```
 
