@@ -1,79 +1,66 @@
-# Data Project Template
+# What Moves Us: Studies of Propulsion Measurement in Poststroke Walking
 
-<a target="_blank" href="https://datalumina.com/">
-    <img src="https://img.shields.io/badge/Datalumina-Project%20Template-2856f7" alt="Datalumina Project" />
-</a>
+Boston University, Sargent College of Health and Rehabilitation Sciences
 
-## Cookiecutter Data Science
-This project template is a simplified version of the [Cookiecutter Data Science](https://cookiecutter-data-science.drivendata.org) template, created to suit the needs of Datalumina and made available as a GitHub template.
+## Committee
+Dr. Cara L. Lewis, PhD, PT (Major Professor)
 
-## Adjusting .gitignore
+Dr. Louis N. Awad, PhD, PT, DPT
 
-Ensure you adjust the `.gitignore` file according to your project needs. For example, since this is a template, the `/data/` folder is commented out and data will not be exlucded from source control:
+Dr. Elliot Saltzman, PhD
 
-```plaintext
-# exclude data from source control by default
-# /data/
-```
+## Abstract
+The efficiency of human walking gait is an important factor of what makes walking
+such a vital part of human daily living. However, this efficiency, particularly that
+of propulsion forces, is inhibited in populations with neuromotor walking deficits,
+including stroke. The ability to measure propulsion forces accurately involves the
+use of large and expensive equipment that is often not available for clinicians to use.
+With wearable sensors and machine learning, there presents an opportunity to make
+laboratory-based measurements of propulsion accessible to clinicians.
 
-Typically, you want to exclude this folder if it contains either sensitive data that you do not want to add to version control or large files.
+An initial step in this endeavor was to determine the most significant metrics
+of propulsion as it relates to distance walked during a 6MWT, a popular outcome
+measure linked to long distance walking function and increased quality of life. Thus,
+the first aim of this dissertation was to evaluate the effects of propulsion metrics on
+long distance walking function using statistical learning methods. The results showed
+that braking magnitude and impulse of both the paretic and nonparetic limbs were
+significant predictors of total distance walked, differing from the common focus on propulsion.
 
-## Duplicating the .env File
-To set up your environment variables, you need to duplicate the `.env.example` file and rename it to `.env`. You can do this manually or using the following terminal command:
+A following step was to confirm that these measurements can be accessible to
+clinicians in a cost-effective manner. The second aim of this dissertation was to
+validate the accuracy of an IMU based machine learning algorithm in estimating
+propulsion metrics versus laboratory-based equipment. The results showed that both
+propulsion metrics and entire APGRF curves cannot accurately be estimated with
+the method used.
 
-```bash
-cp .env.example .env # Linux, macOS, Git Bash, WSL
-copy .env.example .env # Windows Command Prompt
-```
-
-This command creates a copy of `.env.example` and names it `.env`, allowing you to configure your environment variables specific to your setup.
+While the insight of braking metrics as a predictor of long distance walking function is useful, more work can be done to tailor accessible technologies to the needs of
+clinicians.
 
 
 ## Project Organization
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── README.md          <- The top-level README for developers using this project
-├── data
-│   ├── external       <- Data from third party sources
-│   ├── interim        <- Intermediate data that has been transformed
-│   ├── processed      <- The final, canonical data sets for modeling
-│   └── raw            <- The original, immutable data dump
+├── LICENSE            <- Open-source license
+├── README.md          <- General information
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── Study 1            <- Multivariate multiple regression study
+│   │
+│   ├── T1_ExtractData.m        <- Extract data from V3D file
+│   ├── T2_CalculateMetrics.m   <- Calculate APGRF metrics from treadmill data
+│   ├── T3_GraphCheck.m         <- Plot APGRFs w/ metrics
+│   └── TM_data_fft.m           <- Fast Fourier Transform of treadmill data 
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`
+├── Study 2            <- IMU based machine learning algorithm study
+│   │
+│   ├── figure_fix.py           <- Plot fixes for dissertation submission
+│   ├── IMUFilter.m             <- Filter IMU data
+│   ├── IMUStance.m             <- Trim IMU data to stance phase
+│   ├── main.py                 <- Main Python file
+│   └── mod.py                  <- Module containing custom functions
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-└── src                         <- Source code for this project
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    │    
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    ├── plots.py                <- Code to create visualizations 
-    │
-    └── services                <- Service classes to connect with external platforms, tools, or APIs
-        └── __init__.py 
+└── Writing            <- Written dissertation files
+
 ```
+
 
 --------

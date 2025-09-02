@@ -1,0 +1,903 @@
+\begin{thebibliography}{}
+
+\bibitem[Abaid et~al., 2013]{Abaid2013}
+Abaid, N., Cappa, P., Palermo, E., Petrarca, M., and Porfiri, M. (2013).
+\newblock Gait {{Detection}} in {{Children}} with and without {{Hemiplegia Using Single-Axis Wearable Gyroscopes}}.
+\newblock {\em PLoS ONE}, 8(9).
+
+\bibitem[Agresta and Brown, 2015]{Agresta2015}
+Agresta, C. and Brown, A. (2015).
+\newblock Gait retraining for injured and healthy runners using augmented feedback: A systematic literature review.
+\newblock {\em Journal of Orthopaedic \& Sports Physical Therapy}, 45(8):576--584.
+
+\bibitem[Alaqtash et~al., 2011]{Alaqtash2011}
+Alaqtash, M., {Sarkodie-Gyan}, T., Yu, H., Fuentes, O., Brower, R., and Abdelgawad, A. (2011).
+\newblock Automatic classification of pathological gait patterns using ground reaction forces and machine learning algorithms.
+\newblock In {\em 2011 {{Annual International Conference}} of the {{IEEE Engineering}} in {{Medicine}} and {{Biology Society}}}, pages 453--457.
+
+\bibitem[Alvarez et~al., 2020]{Alvarez2020a}
+Alvarez, A.~M., Collimore, A.~N., Aiello, A. J.~M., {Binder-Macelod}, S.~A., and Awad, L.~N. (2020).
+\newblock Propulsion timing affects the relationship between paretic propulsion and long-distance walking function after stroke [{{Poster }} session].
+\newblock In {\em American {{Society}} of {{Biomechanics}} 2020}.
+
+\bibitem[Aminian et~al., 2002]{Aminian2002}
+Aminian, K., Najafi, B., B{\"u}la, C., Leyvraz, P.-F., and Robert, {\relax Ph}. (2002).
+\newblock Spatio-temporal parameters of gait measured by an ambulatory system using miniature gyroscopes.
+\newblock {\em Journal of Biomechanics}, 35(5):689--699.
+
+\bibitem[Ancillao et~al., 2018]{Ancillao2018}
+Ancillao, A., Tedesco, S., Barton, J., and O'flynn, B. (2018).
+\newblock Indirect measurement of ground reaction forces and moments by means of wearable inertial sensors: {{A}} systematic review.
+\newblock {\em Sensors}, 18(8).
+
+\bibitem[Aurbach et~al., 2017]{Aurbach2017a}
+Aurbach, M., Wagner, K., S{\"u}{\ss}, F., and Dendorfer, S. (2017).
+\newblock Implementation and validation of human kinematics measured using {{ IMUs}} for musculoskeletal simulations by the evaluation of joint reaction forces.
+\newblock In {\em {{CMBEBIH}} 2017: {{Proceedings}} of the {{International Conference}} on {{Medical}} and {{Biological Engineering}} 2017}, pages 205--211. Springer.
+
+\bibitem[Awad et~al., 2017a]{Awad2017b}
+Awad, L.~N., Bae, J., Kudzia, P., Long, A., Hendron, K., Holt, K.~G., O'Donnell, K., Ellis, T.~D., and Walsh, C.~J. (2017a).
+\newblock Reducing {{Circumduction}} and {{Hip Hiking During Hemiparetic Walking Through Targeted Assistance}} of the {{Paretic Limb Using}} a {{Soft Robotic Exosuit}}.
+\newblock {\em American Journal of Physical Medicine \& Rehabilitation}, 96(10):S157--S164.
+
+\bibitem[Awad et~al., 2017b]{Awad2017c}
+Awad, L.~N., Bae, J., O'Donnell, K., Hendron, K.~L., Sloot, L., Siviy, C., Kudzia, P., Ellis, T.~D., and Walsh, C.~J. (2017b).
+\newblock Soft exosuits increase walking speed and distance after stroke.
+\newblock In {\em 2017 {{International Symposium}} on {{Wearable Robotics}} and { {Rehabilitation}} ({{WeRob}})}, pages 1--2. IEEE.
+
+\bibitem[Awad et~al., 2015a]{Awad2015}
+Awad, L.~N., {Binder-Macleod}, S.~A., Pohlig, R.~T., and Reisman, D.~S. (2015a).
+\newblock Paretic {{Propulsion}} and {{Trailing Limb Angle Are Key Determinants}} of {{Long-Distance Walking Function After Stroke}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 29(6):499--508.
+
+\bibitem[Awad et~al., 2015b]{Awad2015a}
+Awad, L.~N., Palmer, J.~A., Pohlig, R.~T., { Binder-Macleod}, S.~A., and Reisman, D.~S. (2015b).
+\newblock Walking speed and step length asymmetry modify the energy cost of walking after stroke.
+\newblock {\em Neurorehabilitation and Neural Repair}, 29(5):416--423.
+
+\bibitem[Awad et~al., 2016]{Awad2016}
+Awad, L.~N., Reisman, D.~S., Pohlig, R.~T., and { Binder-Macleod}, S.~A. (2016).
+\newblock Reducing the {{Cost}} of {{Transport}} and {{Increasing Walking Distance After Stroke}}: {{A Randomized Controlled Trial}} on {{Fast Locomotor Training Combined With Functional Electrical Stimulation}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 30(7):661--670.
+
+\bibitem[Balaban and Tok, 2014]{Balaban2014}
+Balaban, B. and Tok, F. (2014).
+\newblock Gait {{Disturbances}} in {{Patients With Stroke}}.
+\newblock {\em American Academy of Physical Medicine and Rehabilitation}, 6(7):635--642.
+
+\bibitem[Begg and Kamruzzaman, 2005]{Begg2005}
+Begg, R. and Kamruzzaman, J. (2005).
+\newblock A machine learning approach for automated recognition of movement patterns using basic, kinetic and kinematic gait data.
+\newblock {\em Journal of Biomechanics}, 38(3):401--408.
+
+\bibitem[Begg et~al., 2005]{Begg2005a}
+Begg, R., Palaniswami, M., and Owen, B. (2005).
+\newblock Support vector machines for automated gait classification.
+\newblock {\em IEEE Transactions on Biomedical Engineering}, 52(5):828--838.
+
+\bibitem[Bejarano et~al., 2015]{Bejarano2015}
+Bejarano, N.~C., Ambrosini, E., Pedrocchi, A., Ferrigno, G., Monticone, M., and Ferrante, S. (2015).
+\newblock A {{Novel Adaptive}}, {{Real-Time Algorithm}} to {{Detect Gait Events From Wearable Sensors}}.
+\newblock {\em IEEE Transactions on Neural Systems and Rehabilitation Engineering}, 23(3):413--422.
+
+\bibitem[Berrigan et~al., 2012]{Berrigan2012}
+Berrigan, D., Carroll, D.~D., Fulton, J.~E., Galuska, D.~A., Brown, D.~R., Dorn, J.~M., Armour, B., and Paul, P. (2012).
+\newblock Vital signs: Walking among adults-{{United States}}, 2005 and 2010.
+\newblock {\em Morbidity and Mortality Weekly Report}, 61(31):595--601.
+
+\bibitem[Bethoux and Bennett, 2011]{Bethoux2011}
+Bethoux, F. and Bennett, S. (2011).
+\newblock Evaluating {{Walking}} in {{Patients}} with {{Multiple Sclerosis}}: {{Which Assessment Tools Are Useful}} in {{Clinical Practice}}?
+\newblock {\em International Journal of MS Care}, 13(1):4--14.
+
+\bibitem[Bishop and Nasrabadi, 2006]{Bishop2006}
+Bishop, C.~M. and Nasrabadi, N.~M. (2006).
+\newblock {\em Pattern {{Recognition}} and {{Machine Learning}}}, volume~4.
+\newblock Springer.
+
+\bibitem[Boutaayamou et~al., 2015]{Boutaayamou2015}
+Boutaayamou, M., Schwartz, C., Stamatakis, J., Deno{\"e}l, V., Maquet, D., Forthomme, B., Croisier, J.-L., Macq, B., Verly, J.~G., Garraux, G., and Br{\"u}ls, O. (2015).
+\newblock Development and validation of an accelerometer-based method for quantifying gait events.
+\newblock {\em Medical Engineering \& Physics}, 37(2):226--232.
+
+\bibitem[Bowden et~al., 2008]{Bowden2008}
+Bowden, M.~G., Balasubramanian, C.~K., Behrman, A.~L., and Kautz, S.~A. (2008).
+\newblock Validation of a {{Speed-Based Classification System Using Quantitative Measures}} of {{Walking Performance Poststroke}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 22(6):672--675.
+
+\bibitem[Bowden et~al., 2006]{Bowden2006}
+Bowden, M.~G., Balasubramanian, C.~K., Neptune, R.~R., and Kautz, S.~A. (2006).
+\newblock Anterior-posterior ground reaction forces as a measure of paretic leg contribution in hemiparetic walking.
+\newblock {\em Stroke}, 37(3):872--876.
+
+\bibitem[Bowden et~al., 2013]{Bowden2013}
+Bowden, M.~G., Behrman, A.~L., Neptune, R.~R., Gregory, C.~M., and Kautz, S.~A. (2013).
+\newblock Locomotor rehabilitation of individuals with chronic stroke: {{ Difference}} between responders and nonresponders.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 94(5):856--862.
+
+\bibitem[Browne and Franz, 2017]{Browne2017}
+Browne, M.~G. and Franz, J.~R. (2017).
+\newblock Does dynamic stability govern propulsive force generation in human walking?
+\newblock {\em Royal Society Open Science}, 4(11):171673.
+
+\bibitem[Browne and Franz, 2019]{Browne2019}
+Browne, M.~G. and Franz, J.~R. (2019).
+\newblock Ankle power biofeedback attenuates the distal-to-proximal redistribution in older adults.
+\newblock {\em Gait \& Posture}, 71:44--49.
+
+\bibitem[Brunton and Kutz, 2021]{Brunton2021}
+Brunton, S.~L. and Kutz, J.~N. (2021).
+\newblock {\em Data-{{Driven Science}} and {{Engineering}}}.
+\newblock Cambridge University Press.
+
+\bibitem[Caldas et~al., 2017]{Caldas2017}
+Caldas, R., Mundt, M., Potthast, W., { Buarque de Lima Neto}, F., and Markert, B. (2017).
+\newblock A systematic review of gait analysis methods based on inertial sensors and adaptive algorithms.
+\newblock {\em Gait \& Posture}, 57(February):204--210.
+
+\bibitem[Cappozzo et~al., 1976]{Cappozzo1976}
+Cappozzo, A., Figura, F., Marchetti, M., and Pedotti, A. (1976).
+\newblock The interplay of muscular and external forces in human ambulation.
+\newblock {\em Journal of Biomechanics}, 9(1):35--43.
+
+\bibitem[Catalfamo et~al., 2010]{Catalfamo2010}
+Catalfamo, P., Ghoussayni, S., and Ewins, D. (2010).
+\newblock Gait {{Event Detection}} on {{Level Ground}} and {{Incline Walking Using}} a {{Rate Gyroscope}}.
+\newblock {\em Sensors}, 10(6):5683--5702.
+
+\bibitem[Catalfamo et~al., 2008]{Catalfamo2008}
+Catalfamo, P., Moser, D., Ghoussayni, S., and Ewins, D. (2008).
+\newblock Detection of gait events using an {{F-Scan}} in-shoe pressure measurement system.
+\newblock {\em Gait \& Posture}, 28(3):420--426.
+
+\bibitem[Chen and Patten, 2008]{Chen2008}
+Chen, G. and Patten, C. (2008).
+\newblock Joint moment work during the stance-to-swing transition in hemiparetic subjects.
+\newblock {\em Journal of Biomechanics}, 41(4):877--883.
+
+\bibitem[Chen et~al., 2005]{Chen2005}
+Chen, G., Patten, C., Kothari, D.~H., and Zajac, F.~E. (2005).
+\newblock Gait differences between individuals with post-stroke hemiparesis and non-disabled controls at matched speeds.
+\newblock {\em Gait \& Posture}, 22(1):51--56.
+
+\bibitem[Clark et~al., 2010]{Clark2010}
+Clark, D.~J., Ting, L.~H., Zajac, F.~E., Neptune, R.~R., and Kautz, S.~A. (2010).
+\newblock Merging of {{Healthy Motor Modules Predicts Reduced Locomotor Performance}} and {{Muscle Coordination Complexity Post-Stroke}}.
+\newblock {\em Journal of Neurophysiology}, 103(2):844--857.
+
+\bibitem[Collins, 2005]{Collins2005}
+Collins, S. (2005).
+\newblock Efficient {{Bipedal Robots Based}} on {{Passive-Dynamic Walkers}}.
+\newblock {\em Science}, 307(5712):1082--1085.
+
+\bibitem[Combs et~al., 2013]{Combs2013}
+Combs, S.~A., Van~Puymbroeck, M., Altenburger, P.~A., Miller, K.~K., Dierks, T.~A., and Schmid, A.~A. (2013).
+\newblock Is walking faster or walking farther more important to persons with chronic stroke?
+\newblock {\em Disability and Rehabilitation}, 35(10):860--867.
+
+\bibitem[Crea et~al., 2012]{Crea2012}
+Crea, S., De~Rossi, S.~M., Donati, M., Reber{\v s}ek, P., Novak, D., Vitiello, N., Lenzi, T., Podobnik, J., Munih, M., and Carrozza, M.~C. (2012).
+\newblock Development of gait segmentation methods for wearable foot pressure sensors.
+\newblock In {\em Proceedings of the {{Annual International Conference}} of the { {IEEE Engineering}} in {{Medicine}} and {{Biology Society}}, {{ EMBS}}}, pages 5018--5021.
+
+\bibitem[Cutting and Kozlowski, 1977]{Cutting1977}
+Cutting, J.~E. and Kozlowski, L.~T. (1977).
+\newblock Recognizing friends by their walk: {{Gait}} perception without familiarity cues.
+\newblock {\em Bulletin of the Psychonomic Society}, 9:353--356.
+
+\bibitem[Cuzzolin et~al., 2017]{Cuzzolin2017}
+Cuzzolin, F., Sapienza, M., Esser, P., Saha, S., Franssen, M.~M., Collett, J., and Dawes, H. (2017).
+\newblock Metric learning for {{Parkinsonian}} identification from {{IMU}} gait measurements.
+\newblock {\em Gait \& Posture}, 54:127--132.
+
+\bibitem[Danks et~al., 2014]{Danks2014}
+Danks, K.~A., Roos, M.~A., McCoy, D., and Reisman, D.~S. (2014).
+\newblock A step activity monitoring program improves real world walking activity post stroke.
+\newblock {\em Disability and Rehabilitation}, 36(26):2233--2236.
+
+\bibitem[Dean et~al., 2012]{Dean2012}
+Dean, C.~M., Rissel, C., Sherrington, C., Sharkey, M., Cumming, R.~G., Lord, S.~R., Barker, R.~N., Kirkham, C., and O'Rourke, S. (2012).
+\newblock Exercise to {{Enhance Mobility}} and {{Prevent Falls After Stroke}} : {{The Community Stroke Club Randomized Trial}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 26(9):1046--1057.
+
+\bibitem[Dejnabadi et~al., 2005]{Dejnabadi2005}
+Dejnabadi, H., Jolles, B.~M., and Aminian, K. (2005).
+\newblock A new approach to accurate measurement of uniaxial joint angles based on a combination of accelerometers and gyroscopes.
+\newblock {\em IEEE Transactions on Biomedical Engineering}, 52(8):1478--1484.
+
+\bibitem[Della~Croce et~al., 2001]{DellaCroce2001}
+Della~Croce, U., Riley, P.~O., Lelas, J.~L., and Kerrigan, D.~C. (2001).
+\newblock A refined view of the determinants of gait.
+\newblock {\em Gait \& Posture}, 14(2):79--84.
+
+\bibitem[Detrembleur et~al., 2003]{Detrembleur2003}
+Detrembleur, C., Dierick, F., Stoquart, G., Chantraine, F., and Lejeune, T. (2003).
+\newblock Energy cost, mechanical work, and efficiency of hemiparetic walking.
+\newblock {\em Gait \& Posture}, 18(2):47--55.
+
+\bibitem[Dickstein, 2008]{Dickstein2008}
+Dickstein, R. (2008).
+\newblock Rehabilitation of {{Gait Speed After Stroke}}: {{A Critical Review} } of {{Intervention Approaches}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 22(6):649--660.
+
+\bibitem[Donath et~al., 2016]{Donath2016}
+Donath, L., Faude, O., Lichtenstein, E., Pagenstert, G., N{\"u}esch, C., and M{\"u}ndermann, A. (2016).
+\newblock Mobile inertial sensor based gait analysis: {{Validity}} and reliability of spatiotemporal gait characteristics in healthy seniors.
+\newblock {\em Gait \& Posture}, 49:371--374.
+
+\bibitem[Donelan et~al., 2002a]{Donelan2002}
+Donelan, J., Kram, R., and Kuo, A.~D. (2002a).
+\newblock Simultaneous positive and negative external mechanical work in human walking.
+\newblock {\em Journal of Biomechanics}, 35(1):117--124.
+
+\bibitem[Donelan et~al., 2002b]{Donelan2002a}
+Donelan, J.~M., Kram, R., and Kuo, A.~D. (2002b).
+\newblock Mechanical work for step-to-step transitions is a major determinant of the metabolic cost of human walking.
+\newblock {\em Journal of Experimental Biology}, 205(23):3717--3727.
+
+\bibitem[Duncan et~al., 2011]{Duncan2011}
+Duncan, P.~W., Sullivan, K.~J., Behrman, A.~L., Azen, S.~P., Wu, S.~S., Nadeau, S.~E., Dobkin, B.~H., Rose, D.~K., Tilson, J.~K., Cen, S., and Hayden, S.~K. (2011).
+\newblock Body-{{Weight}}--{{Supported Treadmill Rehabilitation}} after {{ Stroke}}.
+\newblock {\em New England Journal of Medicine}, 364(21):2026--2036.
+
+\bibitem[Ellis et~al., 2013]{Ellis2013}
+Ellis, R.~G., Howard, K.~C., and Kram, R. (2013).
+\newblock The metabolic and mechanical costs of step time asymmetry in walking.
+\newblock {\em Proceedings of the Royal Society B: Biological Sciences}, 280:20122784--20122784.
+
+\bibitem[English et~al., 2014]{English2014}
+English, C., Manns, P.~J., Tucak, C., and Bernhardt, J. (2014).
+\newblock Physical {{Activity}} and {{Sedentary Behaviors}} in {{People With Stroke Living}} in the {{Community}}: {{A Systematic Review}}.
+\newblock {\em Physical Therapy}, 94(2):185--196.
+
+\bibitem[Evans and Arvind, 2014]{Evans2014}
+Evans, R.~L. and Arvind, D.~K. (2014).
+\newblock Detection of gait phases using orient specks for mobile clinical gait analysis.
+\newblock In {\em 2014 11th {{International Conference}} on {{Wearable}} and {{ Implantable Body Sensor Networks}}}, pages 149--154. IEEE.
+
+\bibitem[Farah et~al., 2017]{Farah2017}
+Farah, J.~D., Baddour, N., and Lemaire, E.~D. (2017).
+\newblock Gait phase detection from thigh kinematics using machine learning techniques.
+\newblock In {\em 2017 {{IEEE International Symposium}} on {{Medical Measurements }} and {{Applications}} ({{MeMeA}})}, pages 263--268, Rochester, MN, USA. IEEE.
+
+\bibitem[Farris et~al., 2015]{Farris2015}
+Farris, D.~J., Hampton, A., Lewek, M.~D., and Sawicki, G.~S. (2015).
+\newblock Revisiting the mechanics and energetics of walking in individuals with chronic hemiparesis following stroke: {{From}} individual limbs to lower limb joints.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 12(1):1--12.
+
+\bibitem[Figueiredo et~al., 2018]{Figueiredo2018}
+Figueiredo, J., Santos, C.~P., and Moreno, J.~C. (2018).
+\newblock Automatic recognition of gait patterns in human motor disorders using machine learning: {{A}} review.
+\newblock {\em Medical Engineering \& Physics}, 53:1--12.
+
+\bibitem[Franceschini et~al., 2013]{Franceschini2013}
+Franceschini, M., Rampello, A., Agosti, M., Massucci, M., Bovolenta, F., and Sale, P. (2013).
+\newblock Walking {{Performance}}: {{Correlation}} between {{Energy Cost}} of {{Walking}} and {{Walking Participation}}. {{New Statistical Approach Concerning Outcome Measurement}}.
+\newblock {\em PLoS ONE}, 8(2):e56669.
+
+\bibitem[Franz, 2016]{Franz2016}
+Franz, J.~R. (2016).
+\newblock The age-associated reduction in propulsive power generation in walking.
+\newblock {\em Exercise and Sport Sciences Reviews}, 44(4):129--136.
+
+\bibitem[Franz and Kram, 2013a]{Franz2013a}
+Franz, J.~R. and Kram, R. (2013a).
+\newblock Advanced age affects the individual leg mechanics of level, uphill, and downhill walking.
+\newblock {\em Journal of Biomechanics}, 46(3):535--540.
+
+\bibitem[Franz and Kram, 2013b]{Franz2013}
+Franz, J.~R. and Kram, R. (2013b).
+\newblock How does age affect leg muscle activity/coactivity during uphill and downhill walking?
+\newblock {\em Gait \& Posture}, 37(3):378--384.
+
+\bibitem[Franz and Kram, 2014]{Franz2014a}
+Franz, J.~R. and Kram, R. (2014).
+\newblock Advanced age and the mechanics of uphill walking: {{A}} joint-level , inverse dynamic analysis.
+\newblock {\em Gait \& Posture}, 39(1):135--140.
+
+\bibitem[Franz et~al., 2014]{Franz2014}
+Franz, J.~R., Maletis, M., and Kram, R. (2014).
+\newblock Real-time feedback enhances forward propulsion during walking in old adults.
+\newblock {\em Clinical Biomechanics}, 29(1):68--74.
+
+\bibitem[Fulk et~al., 2017]{Fulk2017}
+Fulk, G.~D., He, Y., Boyne, P., and Dunning, K. (2017).
+\newblock Predicting {{Home}} and {{Community Walking Activity Poststroke}}.
+\newblock {\em Stroke}, 48(2):406--411.
+
+\bibitem[Gafurov, 2007]{Gafurov2007}
+Gafurov, D. (2007).
+\newblock A survey of biometric gait recognition: {{Approaches}}, security and challenges.
+\newblock In {\em Annual {{Norwegian}} Computer Science Conference}, pages 19--21. Annual Norwegian Computer Science Conference Norway.
+
+\bibitem[Gamito et~al., 2017]{Gamito2017}
+Gamito, P., Oliveira, J., Coelho, C., Morais, D., Lopes, P., Pacheco, J., Brito, R., Soares, F., Santos, N., and Barata, A.~F. (2017).
+\newblock Cognitive training on stroke patients via virtual reality-based serious games.
+\newblock {\em Disability and Rehabilitation}, 39(4):385--388.
+
+\bibitem[Genthe et~al., 2018]{Genthe2018}
+Genthe, K., Schenck, C., Eicholtz, S., { Zajac-Cox}, L., Wolf, S., and Kesar, T.~M. (2018).
+\newblock Effects of real-time gait biofeedback on paretic propulsion and gait biomechanics in individuals post-stroke.
+\newblock {\em Topics in Stroke Rehabilitation}, 25(3):186--193.
+
+\bibitem[Goodfellow et~al., 2016]{Goodfellow2016}
+Goodfellow, I., Bengio, Y., and Courville, A. (2016).
+\newblock {\em Deep Learning}.
+\newblock MIT press.
+
+\bibitem[Gordon et~al., 2009]{Gordon2009}
+Gordon, K.~E., Ferris, D.~P., and Kuo, A.~D. (2009).
+\newblock Metabolic and mechanical energy costs of reducing vertical center of mass movement during gait.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 90(1):136--144.
+
+\bibitem[Guo et~al., 2017]{Guo2017}
+Guo, Y., Storm, F., Zhao, Y., Billings, S., Pavic, A., Mazz{\`a}, C., and Guo, L.-Z. (2017).
+\newblock A {{New Proxy Measurement Algorithm}} with {{Application}} to the { {Estimation}} of {{Vertical Ground Reaction Forces Using Wearable Sensors}}.
+\newblock {\em Sensors}, 17(10):2181.
+
+\bibitem[Halliday et~al., 1998]{Halliday1998}
+Halliday, S.~E., Winter, D.~A., Frank, J.~S., Patla, A.~E., and Prince, F. (1998).
+\newblock The initiation of gait in young, elderly, and {{Parkinson}}'s disease subjects.
+\newblock {\em Gait \& Posture}, 8(1):8--14.
+
+\bibitem[Hass et~al., 2012]{Hass2012}
+Hass, C.~J., Buckley, T.~A., Pitsikoulis, C., and Barthelemy, E.~J. (2012).
+\newblock Progressive resistance training improves gait initiation in individuals with {{Parkinson}}'s disease.
+\newblock {\em Gait \& Posture}, 35(4):669--673.
+
+\bibitem[Hass et~al., 2005]{Hass2005}
+Hass, C.~J., Waddell, D.~E., Fleming, R.~P., Juncos, J.~L., and Gregor, R.~J. (2005).
+\newblock Gait {{Initiation}} and {{Dynamic Balance Control}} in {{Parkinson} }'s {{Disease}}.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 86(11):2172--2176.
+
+\bibitem[Hastie et~al., 2009]{Hastie2009}
+Hastie, T., Tibshirani, R., and Friedman, J. (2009).
+\newblock {\em The Elements of Statistical Learning: Data Mining, Inference, and Prediction}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Hof et~al., 2002]{Hof2002}
+Hof, A., Elzinga, H., Grimmius, W., and Halbertsma, J. (2002).
+\newblock Speed dependence of averaged {{EMG}} profiles in walking.
+\newblock {\em Gait \& Posture}, 16(1):78--86.
+
+\bibitem[Hof et~al., 1992]{Hof1992}
+Hof, A.~L., Nauta, J., {van der Knaap}, E.~R., Schallig, M.~A., and Struwe, D. (1992).
+\newblock Calf muscle work and segment energy changes in human treadmill walking.
+\newblock {\em Journal of Electromyography and Kinesiology}, 2(4):203--216.
+
+\bibitem[Horak et~al., 2015]{Horak2015}
+Horak, F., King, L., and Mancini, M. (2015).
+\newblock Role of {{Body-Worn Movement Monitor Technology}} for {{Balance}} and {{Gait Rehabilitation}}.
+\newblock {\em Physical Therapy}, 95(3):461--470.
+
+\bibitem[Hsiao et~al., 2016a]{Hsiao2016a}
+Hsiao, H., Awad, L.~N., Palmer, J.~A., Higginson, J.~S., and {Binder-Macleod}, S.~A. (2016a).
+\newblock Contribution of {{Paretic}} and {{Nonparetic Limb Peak Propulsive Forces}} to {{Changes}} in {{Walking Speed}} in {{Individuals Poststroke}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 30(8):743--752.
+
+\bibitem[Hsiao et~al., 2015a]{Hsiao2015a}
+Hsiao, H., Knarr, B.~A., Higginson, J., and { Binder-Macleod}, S.~A. (2015a).
+\newblock The {{Relative Contribution}} of {{Ankle Moment}} and {{Trailing Limb Angle}} to {{Propulsive Force}} during {{Gait}}.
+\newblock {\em Human Movement Science}, pages 212--221.
+
+\bibitem[Hsiao et~al., 2015b]{Hsiao2015}
+Hsiao, H., Knarr, B.~A., Higginson, J.~S., and { Binder-Macleod}, S.~A. (2015b).
+\newblock Mechanisms to increase propulsive force for individuals poststroke.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 12(1).
+
+\bibitem[Hsiao et~al., 2016b]{Hsiao2016}
+Hsiao, H., Zabielski, T.~M., Palmer, J.~A., Higginson, J.~S., and {Binder-Macleod}, S.~A. (2016b).
+\newblock Evaluation of measurements of propulsion used to reflect changes in walking speed in individuals poststroke.
+\newblock {\em Journal of Biomechanics}, 49(16):4107--4112.
+
+\bibitem[Jacobs and Ferris, 2015]{Jacobs2015}
+Jacobs, D.~A. and Ferris, D.~P. (2015).
+\newblock Estimation of ground reaction forces and ankle moment with multiple , low-cost sensors.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 12(1).
+
+\bibitem[Jonkers et~al., 2009]{Jonkers2009}
+Jonkers, I., Delp, S., and Patten, C. (2009).
+\newblock Capacity to increase walking speed is limited by impaired hip and ankle power generation in lower functioning persons post-stroke.
+\newblock {\em Gait \& Posture}, 29(1):129--137.
+
+\bibitem[Jonsdottir et~al., 2010]{Jonsdottir2010}
+Jonsdottir, J., Cattaneo, D., Recalcati, M., Regola, A., Rabuffetti, M., Ferrarin, M., and Casiraghi, A. (2010).
+\newblock Task-{{Oriented Biofeedback}} to {{Improve Gait}} in {{Individuals With Chronic Stroke}}: {{Motor Learning Approach}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 24(5):478--485.
+
+\bibitem[Kaczmarczyk et~al., 2009]{Kaczmarczyk2009}
+Kaczmarczyk, K., Wit, A., Krawczyk, M., and Zaborski, J. (2009).
+\newblock Gait classification in post-stroke patients using artificial neural networks.
+\newblock {\em Gait \& Posture}, 30(2):207--210.
+
+\bibitem[Karatsidis et~al., 2016]{Karatsidis2016}
+Karatsidis, A., Bellusci, G., Schepers, H., { de Zee}, M., Andersen, M., and Veltink, P. (2016).
+\newblock Estimation of {{Ground Reaction Forces}} and {{Moments During Gait Using Only Inertial Motion Capture}}.
+\newblock {\em Sensors}, 17(1):75.
+
+\bibitem[Karatsidis et~al., 2019]{Karatsidis2019}
+Karatsidis, A., Jung, M., Schepers, H.~M., Bellusci, G., {de~Zee}, M., Veltink, P.~H., and Andersen, M.~S. (2019).
+\newblock Musculoskeletal model-based inverse dynamic analysis under ambulatory conditions using inertial motion capture.
+\newblock {\em Medical Engineering \& Physics}, 65:68--77.
+
+\bibitem[Karatsidis et~al., 2018]{Karatsidis2018}
+Karatsidis, A., Richards, R.~E., Konrath, J.~M., {van den Noort}, J.~C., Schepers, H.~M., Bellusci, G., Harlaar, J., and Veltink, P.~H. (2018).
+\newblock Validation of wearable visual feedback for retraining foot progression angle using inertial sensors and an augmented reality headset.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 15(1).
+
+\bibitem[Kavanagh and Menz, 2008]{Kavanagh2008}
+Kavanagh, J.~J. and Menz, H.~B. (2008).
+\newblock Accelerometry: {{A}} technique for quantifying movement patterns during walking.
+\newblock {\em Gait \& Posture}, 28(1):1--15.
+
+\bibitem[Kerrigan et~al., 2001]{Kerrigan2001}
+Kerrigan, D., Riley, P.~O., Lelas, J.~L., and Croce, U.~D. (2001).
+\newblock Quantification of pelvic rotation as a determinant of gait.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 82(2):217--220.
+
+\bibitem[Kesar et~al., 2009]{Kesar2009}
+Kesar, T.~M., Perumal, R., Reisman, D.~S., Jancosko, A., Rudolph, K.~S., Higginson, J.~S., and {Binder-Macleod}, S.~A. (2009).
+\newblock Functional {{Electrical Stimulation}} of {{Ankle Plantarflexor}} and {{Dorsiflexor Muscles}}: {{Effects}} on {{Poststroke Gait}}.
+\newblock {\em Stroke}, 40(12):3821--3827.
+
+\bibitem[{Kieron Jie-Han} et~al., 2018]{KieronJie-Han2018}
+{Kieron Jie-Han}, N., Gouwanda, D., Gopalai, A.~A., and Yu~Zheng, C. (2018).
+\newblock Estimation of {{Vertical Ground Reaction Force}} during {{Running}} using {{Neural Network Model}} and {{Uniaxial Accelerometer}}.
+\newblock {\em Journal of Biomechanics}, 76:269--273.
+
+\bibitem[Kitago and Krakauer, 2013]{Kitago2013}
+Kitago, T. and Krakauer, J.~W. (2013).
+\newblock Motor learning principles for neurorehabilitation.
+\newblock In {\em Handbook of {{Clinical Neurology}}}, volume 110, pages 93--103. Elsevier.
+
+\bibitem[Kramer et~al., 2016]{Kramer2016}
+Kramer, S., Johnson, L., Bernhardt, J., and Cumming, T. (2016).
+\newblock Energy {{Expenditure}} and {{Cost During Walking After Stroke}}: {{ A Systematic Review}}.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 97(4):619--632.e1.
+
+\bibitem[Kruger et~al., 2008]{Kruger2008}
+Kruger, J., Ham, S.~A., Berrigan, D., and { Ballard-Barbash}, R. (2008).
+\newblock Prevalence of transportation and leisure walking among {{U}}.{{S}}. adults.
+\newblock {\em Preventive Medicine}, 47(3):329--334.
+
+\bibitem[Kuhman and Hurt, 2019]{Kuhman2019}
+Kuhman, D. and Hurt, C.~P. (2019).
+\newblock The timing of locomotor propulsion in healthy adults walking at multiple speeds.
+\newblock {\em Human Movement Science}, 68:102524.
+
+\bibitem[Kuo, 2002]{Kuo2002}
+Kuo, A.~D. (2002).
+\newblock Energetics of {{Actively Powered Locomotion Using}} the {{Simplest Walking Model}}.
+\newblock {\em Journal of Biomechanical Engineering}, 124(1):113--120.
+
+\bibitem[Kuo and Donelan, 2010]{Kuo2010}
+Kuo, A.~D. and Donelan, J.~M. (2010).
+\newblock Dynamic {{Principles}} of {{Gait}} and {{Their Clinical Implications}}.
+\newblock In {\em Physical {{Therapy}}}, volume~90, pages 157--174. Oxford University Press.
+
+\bibitem[Kuo et~al., 2005]{Kuo2005}
+Kuo, A.~D., Donelan, J.~M., and Ruina, A. (2005).
+\newblock Energetic {{Consequences}} of {{Walking Like}} an {{Inverted Pendulum}}: {{Step-to-Step Transitions}}:.
+\newblock {\em Exercise and Sport Sciences Reviews}, 33(2):88--97.
+
+\bibitem[Lapointe et~al., 2001]{Lapointe2001}
+Lapointe, R., Lajoie, Y., Serresse, O., and Barbeau, H. (2001).
+\newblock Functional community ambulation requirements in incomplete spinal cord injured subjects.
+\newblock {\em Spinal Cord}, 39(6):327--335.
+
+\bibitem[Laver et~al., 2017]{Laver2017}
+Laver, K.~E., Lange, B., George, S., Deutsch, J.~E., Saposnik, G., and Crotty, M. (2017).
+\newblock Virtual reality for stroke rehabilitation.
+\newblock {\em Cochrane Database of Systematic Reviews}, (11).
+
+\bibitem[Lee and Buchner, 2008]{Lee2008}
+Lee, I.-M. and Buchner, D.~M. (2008).
+\newblock The {{Importance}} of {{Walking}} to {{Public Health}}.
+\newblock {\em Medicine \& Science in Sports \& Exercise}, 40(7):S512--S518.
+
+\bibitem[Li et~al., 2016]{Li2016}
+Li, Z., Han, X.-G., Sheng, J., and Ma, S.-J. (2016).
+\newblock Virtual reality for improving balance in patients after stroke: {{A }} systematic review and meta-analysis.
+\newblock {\em Clinical Rehabilitation}, 30(5):432--440.
+
+\bibitem[Lim et~al., 2019]{Lim2019}
+Lim, H., Kim, B., and Park, S. (2019).
+\newblock Prediction of {{Lower Limb Kinetics}} and {{Kinematics}} during {{ Walking}} by a {{Single IMU}} on the {{Lower Back Using Machine Learning}}.
+\newblock {\em Sensors}, 20(1):130.
+
+\bibitem[Lim et~al., 2016]{Lim2016}
+Lim, S.~B., Horslen, B.~C., Davis, J.~R., Allum, J.~H., and Carpenter, M.~G. (2016).
+\newblock Benefits of multi-session balance and gait training with multi-modal biofeedback in healthy older adults.
+\newblock {\em Gait \& Posture}, 47:10--17.
+
+\bibitem[Lipfert et~al., 2014]{Lipfert2014}
+Lipfert, S., Gunther, M., Renjewski, D., and Seyfarth, A. (2014).
+\newblock Impulsive ankle push-off powers leg swing in human walking.
+\newblock {\em Journal of Experimental Biology}, 217(10):1831--1831.
+
+\bibitem[Mahon et~al., 2015]{Mahon2015}
+Mahon, C.~E., Farris, D.~J., Sawicki, G.~S., and Lewek, M.~D. (2015).
+\newblock Individual limb mechanical analysis of gait following stroke.
+\newblock {\em Journal of Biomechanics}, 48(6):984--989.
+
+\bibitem[Mannini et~al., 2014]{Mannini2014}
+Mannini, A., Genovese, V., and Sabatini, A.~M. (2014).
+\newblock Online {{Decoding}} of {{Hidden Markov Models}} for {{Gait Event Detection Using Foot-Mounted Gyroscopes}}.
+\newblock {\em IEEE Journal of Biomedical and Health Informatics}, 18(4):1122--1130.
+
+\bibitem[Mannini and Sabatini, 2011]{Mannini2011}
+Mannini, A. and Sabatini, A.~M. (2011).
+\newblock A hidden {{Markov}} model-based technique for gait segmentation using a foot-mounted gyroscope.
+\newblock In {\em 2011 {{Annual International Conference}} of the {{IEEE Engineering}} in {{Medicine}} and {{Biology Society}}}, pages 4369--4373.
+
+\bibitem[Mannini and Sabatini, 2012]{Mannini2012}
+Mannini, A. and Sabatini, A.~M. (2012).
+\newblock Gait phase detection and discrimination between walking--jogging activities using hidden {{Markov}} models applied to foot motion data from a gyroscope.
+\newblock {\em Gait \& Posture}, 36(4):657--661.
+
+\bibitem[Mannini et~al., 2016]{Mannini2016}
+Mannini, A., Trojaniello, D., Cereatti, A., and Sabatini, A. (2016).
+\newblock A {{Machine Learning Framework}} for {{Gait Classification Using Inertial Sensors}}: {{Application}} to {{Elderly}}, {{Post-Stroke}} and {{Huntington}}'s {{Disease Patients}}.
+\newblock {\em Sensors}, 16(1):134.
+
+\bibitem[Marsland, 2011]{Marsland2011}
+Marsland, S. (2011).
+\newblock {\em Machine {{Learning}}: {{An Algorithmic Perspective}}}.
+\newblock {Chapman and Hall/CRC}, 1st edition.
+
+\bibitem[Martin et~al., 2002]{Martin2002}
+Martin, M., Shinberg, M., Kuchibhatla, M., Ray, L., Carollo, J.~J., and Schenkman, M.~L. (2002).
+\newblock Gait {{Initiation}} in {{Community-Dwelling Adults With Parkinson Disease}}: {{Comparison With Older}} and {{Younger Adults Without}} the {{Disease}}.
+\newblock {\em Physical Therapy}, 82(6):566--577.
+
+\bibitem[Massaad et~al., 2010]{Massaad2010}
+Massaad, F., Lejeune, T.~M., and Detrembleur, C. (2010).
+\newblock Reducing the {{Energy Cost}} of {{Hemiparetic Gait Using Center}} of {{Mass Feedback}}: {{A Pilot Study}}.
+\newblock {\em Neurorehabilitation and Neural Repair}, 24(4):338--347.
+
+\bibitem[Mayagoitia et~al., 2002]{Mayagoitia2002}
+Mayagoitia, R.~E., Nene, A.~V., and Veltink, P.~H. (2002).
+\newblock Accelerometer and rate gyroscope measurement of kinematics: An inexpensive alternative to optical motion analysis systems.
+\newblock {\em Journal of Biomechanics}, 35(4):537--542.
+
+\bibitem[McCain et~al., 2019]{McCain2019}
+McCain, E.~M., Dick, T. J.~M., Giest, T.~N., Nuckols, R.~W., Lewek, M.~D., Saul, K.~R., and Sawicki, G.~S. (2019).
+\newblock Mechanics and energetics of post-stroke walking aided by a powered ankle exoskeleton with speed-adaptive myoelectric control.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 16(1).
+
+\bibitem[McGinnis et~al., 2017]{McGinnis2017}
+McGinnis, R.~S., Mahadevan, N., Moon, Y., Seagers, K., Sheth, N., Wright, J.~A., DiCristofaro, S., Silva, I., Jortberg, E., Ceruolo, M., Pindado, J.~A., Sosnoff, J., Ghaffari, R., and Patel, S. (2017).
+\newblock A machine learning approach for gait speed estimation using skin-mounted wearable sensors: {{From}} healthy controls to individuals with multiple sclerosis.
+\newblock {\em PLOS ONE}, 12(6):e0178366.
+
+\bibitem[McGreer, 1990]{McGreer1990}
+McGreer, T. (1990).
+\newblock Passive {{Dynamic Walking}}.
+\newblock {\em The International Journal of Robotic Research}, 9(2):62--82.
+
+\bibitem[Mian et~al., 2006]{Mian2006}
+Mian, O.~S., Thom, J.~M., Ardig{\`o}, L.~P., Narici, M.~V., and Minetti, A.~E. (2006).
+\newblock Metabolic cost, mechanical work, and efficiency during walking in young and older men.
+\newblock {\em Acta Physiologica}, 186(2):127--139.
+
+\bibitem[Michael et~al., 2005]{Michael2005}
+Michael, K.~M., Allen, J.~K., and Macko, R.~F. (2005).
+\newblock Reduced {{Ambulatory Activity After Stroke}}: {{The Role}} of {{ Balance}}, {{Gait}}, and {{Cardiovascular Fitness}}.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 86(8):1552--1556.
+
+\bibitem[Mijailovi{\"u} et~al., 2009]{Mijailoviu2009}
+Mijailovi{\"u}, N., Gavrilovi{\"u}, M., and Rafajlovi{ \"u}, S. (2009).
+\newblock Gait {{Phases Recognition}} from {{Accelerations}} and {{Ground Reaction Forces}}: {{Application}} of {{Neural Networks}}.
+\newblock {\em Telfor Journal}, 1(1):3.
+
+\bibitem[Miyazaki et~al., 2019]{Miyazaki2019}
+Miyazaki, T., Kawada, M., Nakai, Y., Kiyama, R., and Yone, K. (2019).
+\newblock Validity of {{Measurement}} for {{Trailing Limb Angle}} and {{ Propulsion Force}} during {{Gait Using}} a {{Magnetic Inertial Measurement Unit}}.
+\newblock {\em BioMed Research International}, 2019:1--8.
+
+\bibitem[Moore et~al., 2010]{Moore2010}
+Moore, J.~L., Roth, E.~J., Killian, C., and Hornby, T.~G. (2010).
+\newblock Locomotor {{Training Improves Daily Stepping Activity}} and {{Gait Efficiency}} in {{Individuals Poststroke Who Have Reached}} a ``{{ Plateau}}'' in {{Recovery}}.
+\newblock {\em Stroke}, 41(1):129--135.
+
+\bibitem[Moore et~al., 2017]{Moore2017}
+Moore, S.~A., Hickey, A., Lord, S., Del~Din, S., Godfrey, A., and Rochester, L. (2017).
+\newblock Comprehensive measurement of stroke gait characteristics with a single accelerometer in the laboratory and community: A feasibility, validity and reliability study.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 14(1).
+
+\bibitem[Neptune et~al., 2001]{Neptune2001}
+Neptune, R., Kautz, S., and Zajac, F. (2001).
+\newblock Contributions of the individual ankle plantar flexors to support, forward progression and swing initiation during walking.
+\newblock {\em Journal of Biomechanics}, 34(11):1387--1398.
+
+\bibitem[Novak et~al., 2013]{Novak2013}
+Novak, D., Reber{\v s}ek, P., De~Rossi, S. M.~M., Donati, M., Podobnik, J., Beravs, T., Lenzi, T., Vitiello, N., Carrozza, M.~C., and Munih, M. (2013).
+\newblock Automated detection of gait initiation and termination using wearable sensors.
+\newblock {\em Medical Engineering and Physics}, 35(12):1713--1720.
+
+\bibitem[Ohtaki et~al., 2001]{Ohtaki2001}
+Ohtaki, Y., Sagawa, K., and Inooka, H. (2001).
+\newblock A method for gait analysis in a daily living environment by body-mounted instruments.
+\newblock {\em JSME International Journal Series C Mechanical Systems, Machine Elements and Manufacturing}, 44(4):1125--1132.
+
+\bibitem[Ortega and Farley, 2005]{Ortega2005}
+Ortega, J.~D. and Farley, C.~T. (2005).
+\newblock Minimizing center of mass vertical movement increases metabolic cost in walking.
+\newblock {\em Journal of Applied Physiology}, 99:9.
+
+\bibitem[Pappas et~al., 2004]{Pappas2004}
+Pappas, I.~P., Keller, T., Mangold, S., Popovic, M.~R., Dietz, V., and Morari, M. (2004).
+\newblock A reliable gyroscope-based gait-phase detection sensor embedded in a shoe insole.
+\newblock {\em Sensors}, 4(2):268--274.
+
+\bibitem[Pedregosa et~al., 2011]{Pedregosa2011}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., and Dubourg, V. (2011).
+\newblock Scikit-learn: {{Machine}} learning in {{Python}}.
+\newblock {\em the Journal of machine Learning research}, 12:2825--2830.
+
+\bibitem[Penke et~al., 2019]{Penke2019}
+Penke, K., Scott, K., Sinskey, Y., and Lewek, M.~D. (2019).
+\newblock Propulsive {{Forces Applied}} to the {{Body}}'s {{Center}} of {{ Mass Affect Metabolic Energetics Poststroke}}.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 100(6):1068--1075.
+
+\bibitem[{Perez-Marcos} et~al., 2017]{Perez-Marcos2017}
+{Perez-Marcos}, D., Chevalley, O., Schmidlin, T., Garipelli, G., Serino, A., Vuadens, P., Tadi, T., Blanke, O., and Mill{\'a}n, J. d.~R. (2017).
+\newblock Increasing upper limb training intensity in chronic stroke using embodied virtual reality: A pilot study.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 14(1).
+
+\bibitem[Perry and Davids, 1992]{Perry1992}
+Perry, J. and Davids, J.~R. (1992).
+\newblock Gait analysis: {{Normal}} and pathological function.
+\newblock {\em Journal of Pediatric Orthopaedics}, 12(6):815.
+
+\bibitem[Peruzzi et~al., 2011]{Peruzzi2011}
+Peruzzi, A., Della~Croce, U., and Cereatti, A. (2011).
+\newblock Estimation of stride length in level walking using an inertial measurement unit attached to the foot: {{A}} validation of the zero velocity assumption during stance.
+\newblock {\em Journal of Biomechanics}, 44(10):1991--1994.
+
+\bibitem[Phadke, 2012]{Phadke2012}
+Phadke, C.~P. (2012).
+\newblock Immediate {{Effects}} of a {{Single Inclined Treadmill Walking Session}} on {{Level Ground Walking}} in {{Individuals After Stroke} }:.
+\newblock {\em American Journal of Physical Medicine \& Rehabilitation}, 91(4):337--345.
+
+\bibitem[Pieper et~al., 2019]{Pieper2019}
+Pieper, N.~L., Lewek, M.~D., and Franz, J.~R. (2019).
+\newblock Can shank acceleration provide a clinically feasible surrogate for individual limb propulsion during walking?
+\newblock {\em Journal of Biomechanics}, 98:109449.
+
+\bibitem[Potluri et~al., 2019]{Potluri2019}
+Potluri, S., Chandran, A.~B., Diedrich, C., and Schega, L. (2019).
+\newblock Machine {{Learning}} based {{Human Gait Segmentation}} with {{ Wearable Sensor Platform}}.
+\newblock In {\em 2019 41st {{Annual International Conference}} of the {{IEEE Engineering}} in {{Medicine}} and {{Biology Society}} ({{EMBC}})}, pages 588--594.
+
+\bibitem[Rand et~al., 2010]{Rand2010}
+Rand, D., Eng, J.~J., Tang, P.-F., Hung, C., and Jeng, J.-S. (2010).
+\newblock Daily physical activity and its contribution to the health-related quality of life of ambulatory individuals with chronic stroke.
+\newblock {\em Health and Quality of Life Outcomes}, 8(1):80.
+
+\bibitem[Reisman et~al., 2009]{Reisman2009}
+Reisman, D.~S., Rudolph, K.~S., and Farquhar, W.~B. (2009).
+\newblock Influence of speed on walking economy poststroke.
+\newblock {\em Neurorehabilitation and Neural Repair}, 23(6):529--34.
+
+\bibitem[Revi et~al., 2020]{Revi2020}
+Revi, D.~A., Alvarez, A.~M., Walsh, C.~J., De~Rossi, S.~M., and Awad, L.~N. (2020).
+\newblock Indirect measurement of anterior-posterior ground reaction forces using a minimal set of wearable inertial sensors: {{From}} healthy to hemiparetic walking.
+\newblock {\em Journal of neuroengineering and rehabilitation}, 17:1--13.
+
+\bibitem[Rueterbories et~al., 2014]{Rueterbories2014}
+Rueterbories, J., Spaich, E.~G., and Andersen, O.~K. (2014).
+\newblock Gait event detection for use in {{FES}} rehabilitation by radial and tangential foot accelerations.
+\newblock {\em Medical Engineering \& Physics}, 36(4):502--508.
+
+\bibitem[Ryu and Park, 2018]{Ryu2018}
+Ryu, H.~X. and Park, S. (2018).
+\newblock Estimation of unmeasured ground reaction force data based on the oscillatory characteristics of the center of mass during human walking.
+\newblock {\em Journal of Biomechanics}, 71:135--143.
+
+\bibitem[Saunders et~al., 1953]{Saunders1953}
+Saunders, M., Inman, {\relax VT}., and Eberhart, {\relax HD}. (1953).
+\newblock The major determinant in normal and pathological gait.
+\newblock {\em Journal of Bones and Joint Surgery}, 35(3):543--558.
+
+\bibitem[Schenck et~al., 2019]{Schenck2019}
+Schenck, C., Bakke, D., and Besier, T. (2019).
+\newblock Haptic biofeedback induces changes in ankle push-off during walking.
+\newblock {\em Gait \& Posture}, 74:76--82.
+
+\bibitem[Schenck and Kesar, 2017]{Schenck2017}
+Schenck, C. and Kesar, T.~M. (2017).
+\newblock Effects of unilateral real-time biofeedback on propulsive forces during gait.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 14(1):1--10.
+
+\bibitem[Seel et~al., 2014]{Seel2014}
+Seel, T., Raisch, J., and Schauer, T. (2014).
+\newblock {{IMU-based}} joint angle measurement for gait analysis.
+\newblock {\em Sensors}, 14(4):6891--6909.
+
+\bibitem[Seel et~al., 2012]{Seel2012}
+Seel, T., Schauer, T., and Raisch, J. (2012).
+\newblock Joint axis and position estimation from inertial measurement data by exploiting kinematic constraints.
+\newblock In {\em 2012 {{IEEE International Conference}} on {{Control Applications}}}, pages 45--49.
+
+\bibitem[Selles et~al., 2005]{Selles2005}
+Selles, R.~W., Formanoy, M. A.~G., Bussmann, J. B.~J., Janssens, P.~J., and Stam, H.~J. (2005).
+\newblock Automated estimation of initial and terminal contact timing using accelerometers; development and validation in transtibial amputees and controls.
+\newblock {\em IEEE Transactions on Neural Systems and Rehabilitation Engineering}, 13(1):81--88.
+
+\bibitem[Shahabpoor and Pavic, 2018]{Shahabpoor2018}
+Shahabpoor, E. and Pavic, A. (2018).
+\newblock Estimation of vertical walking ground reaction force in real-life environments using single {{IMU}} sensor.
+\newblock {\em Journal of Biomechanics}, 79:181--190.
+
+\bibitem[Shetty and Rao, 2016]{Shetty2016}
+Shetty, S. and Rao, Y.~S. (2016).
+\newblock {{SVM}} based machine learning approach to identify {{Parkinson}}'s disease using gait analysis.
+\newblock In {\em 2016 {{International Conference}} on {{Inventive Computation Technologies}} ({{ICICT}})}, volume~2, pages 1--5.
+
+\bibitem[Sigrist et~al., 2013]{Sigrist2013}
+Sigrist, R., Rauter, G., Riener, R., and Wolf, P. (2013).
+\newblock Augmented visual, auditory, haptic, and multimodal feedback in motor learning: {{A}} review.
+\newblock {\em Psychonomic Bulletin \& Review}, 20(1):21--53.
+
+\bibitem[Sockol et~al., 2007]{Sockol2007}
+Sockol, M.~D., Raichlen, D.~A., and Pontzer, H. (2007).
+\newblock Chimpanzee locomotor energetics and the origin of human bipedalism.
+\newblock {\em Proceedings of the National Academy of Sciences}, 104:12265--12269.
+
+\bibitem[Sprager and Juric, 2015]{Sprager2015}
+Sprager, S. and Juric, M. (2015).
+\newblock Inertial {{Sensor-Based Gait Recognition}}: {{A Review}}.
+\newblock {\em Sensors}, 15(9):22089--22127.
+
+\bibitem[Stanton et~al., 2017]{Stanton2017}
+Stanton, R., Ada, L., Dean, C.~M., and Preston, E. (2017).
+\newblock Biofeedback improves performance in lower limb activities more than usual therapy in people following stroke: A systematic review.
+\newblock {\em Journal of Physiotherapy}, 63(1):11--16.
+
+\bibitem[Steele et~al., 2015]{Steele2015}
+Steele, K.~M., Rozumalski, A., and Schwartz, M.~H. (2015).
+\newblock Muscle synergies and complexity of neuromuscular control during gait in cerebral palsy.
+\newblock {\em Developmental Medicine and Child Neurology}, 57(12):1176--1182.
+
+\bibitem[Sullivan et~al., 2014]{Sullivan2014}
+Sullivan, J.~E., Espe, L.~E., Kelly, A.~M., Veilbig, L.~E., and Kwasny, M.~J. (2014).
+\newblock Feasibility and {{Outcomes}} of a {{Community-Based}}, {{ Pedometer-Monitored Walking Program}} in {{Chronic Stroke}}: {{A Pilot Study}}.
+\newblock {\em Topics in Stroke Rehabilitation}, 21(2):101--110.
+
+\bibitem[Taborri et~al., 2016]{Taborri2016}
+Taborri, J., Palermo, E., Rossi, S., and Cappa, P. (2016).
+\newblock Gait {{Partitioning Methods}}: {{A Systematic Review}}.
+\newblock {\em Sensors}, 16(1):66.
+
+\bibitem[Taborri et~al., 2015a]{Taborri2015}
+Taborri, J., Rossi, S., Palermo, E., and Cappa, P. (2015a).
+\newblock A {{HMM}} distributed classifier to control robotic knee module of an active orthosis.
+\newblock In {\em 2015 {{IEEE International Conference}} on {{Rehabilitation Robotics}} ({{ICORR}})}, pages 277--282, Singapore, Singapore. IEEE.
+
+\bibitem[Taborri et~al., 2014]{Taborri2014}
+Taborri, J., Rossi, S., Palermo, E., Patan{\` e}, F., and Cappa, P. (2014).
+\newblock A {{Novel HMM Distributed Classifier}} for the {{Detection}} of {{ Gait Phases}} by {{Means}} of a {{Wearable Inertial Sensor Network}}.
+\newblock {\em Sensors}, 14(9):16212--16234.
+
+\bibitem[Taborri et~al., 2015b]{Taborri2015a}
+Taborri, J., Scalona, E., Palermo, E., Rossi, S., and Cappa, P. (2015b).
+\newblock Validation of {{Inter-Subject Training}} for {{Hidden Markov Models Applied}} to {{Gait Phase Detection}} in {{Children}} with {{ Cerebral Palsy}}.
+\newblock {\em Sensors}, 15(9):24514--24529.
+
+\bibitem[Tahir and Manap, 2012]{Tahir2012}
+Tahir, N.~M. and Manap, H.~H. (2012).
+\newblock Parkinson {{Disease Gait Classification}} based on {{Machine Learning Approach}}.
+\newblock {\em Journal of Applied Sciences}, 12:180--185.
+
+\bibitem[Takahashi et~al., 2015]{Takahashi2015}
+Takahashi, K.~Z., Lewek, M.~D., and Sawicki, G.~S. (2015).
+\newblock A neuromechanics-based powered ankle exoskeleton to assist walking post-stroke: A feasibility study.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 12(1):23.
+
+\bibitem[Tate and Milner, 2010]{Tate2010}
+Tate, J.~J. and Milner, C.~E. (2010).
+\newblock Real-{{Time Kinematic}}, {{Temporospatial}}, and {{Kinetic Biofeedback During Gait Retraining}} in {{Patients}}: {{A Systematic Review}}.
+\newblock {\em Physical Therapy}, 90(8):1123--1134.
+
+\bibitem[Trojaniello et~al., 2014]{Trojaniello2014}
+Trojaniello, D., Cereatti, A., and Della~Croce, U. (2014).
+\newblock Accuracy, sensitivity and robustness of five different methods for the estimation of gait temporal parameters using a single inertial sensor mounted on the lower trunk.
+\newblock {\em Gait \& Posture}, 40(4):487--492.
+
+\bibitem[Turns et~al., 2007]{Turns2007}
+Turns, L.~J., Neptune, R.~R., and Kautz, S.~A. (2007).
+\newblock Relationships {{Between Muscle Activity}} and {{Anteroposterior Ground Reaction Forces}} in {{Hemiparetic Walking}}.
+\newblock {\em Archives of Physical Medicine and Rehabilitation}, 88(9):1127--1135.
+
+\bibitem[{van Gelder} et~al., 2018]{VanGelder2018}
+{van Gelder}, L.~M., Barnes, A., Wheat, J.~S., and Heller, B.~W. (2018).
+\newblock The use of biofeedback for gait retraining: {{A}} mapping review.
+\newblock {\em Clinical Biomechanics}, 59:159--166.
+
+\bibitem[{van Swigchem} et~al., 2014]{VanSwigchem2014}
+{van Swigchem}, R., Roerdink, M., Weerdesteyn, V., Geurts, A.~C., and Daffertshofer, A. (2014).
+\newblock The {{Capacity}} to {{Restore Steady Gait After}} a {{Step Modification Is Reduced}} in {{People With Poststroke Foot Drop Using}} an {{Ankle-Foot Orthosis}}.
+\newblock {\em Physical Therapy}, 94(5):654--663.
+
+\bibitem[{Vera-Rodriguez} et~al., 2012]{Vera-Rodriguez2012}
+{Vera-Rodriguez}, R., Mason, J.~S., Fierrez, J., and {Ortega-Garcia}, J. (2012).
+\newblock Comparative analysis and fusion of spatiotemporal information for footstep recognition.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence}, 35(4):823--834.
+
+\bibitem[Virani et~al., 2020]{Virani2020}
+Virani, S.~S., Alonso, A., Benjamin, E.~J., Bittencourt, M.~S., Callaway, C.~W., Carson, A.~P., Chamberlain, A.~M., Chang, A.~R., Cheng, S., and Delling, F.~N. (2020).
+\newblock Heart disease and stroke statistics---2020 update: A report from the {{American Heart Association}}.
+\newblock {\em Circulation}, 141(9):e139--e596.
+
+\bibitem[Vistamehr et~al., 2014]{Vistamehr2014}
+Vistamehr, A., Kautz, S.~A., and Neptune, R.~R. (2014).
+\newblock The influence of solid ankle-foot-orthoses on forward propulsion and dynamic balance in healthy adults during walking.
+\newblock {\em Clinical Biomechanics}, 29(5):583--589.
+
+\bibitem[Wang et~al., 2003]{Wang2003}
+Wang, L., Tan, T., Ning, H., and Hu, W. (2003).
+\newblock Silhouette analysis-based gait recognition for human identification.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence}, 25(12):1505--1518.
+
+\bibitem[Wert et~al., 2013]{Wert2013}
+Wert, D.~M., Brach, J.~S., Perera, S., and VanSwearingen, J. (2013).
+\newblock The association between energy cost of walking and physical function in older adults.
+\newblock {\em Archives of Gerontology and Geriatrics}, 57(2):198--203.
+
+\bibitem[Winter, 1983]{Winter1983}
+Winter, D.~A. (1983).
+\newblock Energy generation and absorption at the ankle and knee during fast, natural, and slow cadences.
+\newblock {\em Clinical Orthopaedics and Related Research}, (175):147--154.
+
+\bibitem[Winter and Robertson, 1978]{Winter1978}
+Winter, D.~A. and Robertson, D. G.~E. (1978).
+\newblock Joit torque and energy patterns in normal gait.
+\newblock {\em Biological Cybernetics}, 29(3):137--142.
+
+\bibitem[Wouda et~al., 2018]{Wouda2018}
+Wouda, F.~J., Giuberti, M., Bellusci, G., Maartens, E., Reenalda, J., {van Beijnum}, B.-J.~F., and Veltink, P.~H. (2018).
+\newblock Estimation of {{Vertical Ground Reaction Forces}} and {{Sagittal Knee Kinematics During Running Using Three Inertial Sensors}}.
+\newblock {\em Frontiers in Physiology}, 9.
+
+\bibitem[Wutzke et~al., 2012]{Wutzke2012}
+Wutzke, C.~J., Sawicki, G.~S., and Lewek, M.~D. (2012).
+\newblock The influence of a unilateral fixed ankle on metabolic and mechanical demands during walking in unimpaired young adults.
+\newblock {\em Journal of Biomechanics}, 45(14):2405--2410.
+
+\bibitem[Yang et~al., 2013]{Yang2013}
+Yang, S., Zhang, J.-T., Novak, A.~C., Brouwer, B., and Li, Q. (2013).
+\newblock Estimation of spatio-temporal parameters for post-stroke hemiparetic gait using inertial sensors.
+\newblock {\em Gait \& Posture}, 37(3):354--358.
+
+\bibitem[Yen et~al., 2014]{Yen2014}
+Yen, S.-C., Landry, J.~M., and Wu, M. (2014).
+\newblock Augmented multisensory feedback enhances locomotor adaptation in humans with incomplete spinal cord injury.
+\newblock {\em Human Movement Science}, 35:80--93.
+
+\bibitem[Zelik and Adamczyk, 2016]{Zelik2016}
+Zelik, K.~E. and Adamczyk, P.~G. (2016).
+\newblock A unified perspective on ankle push-off in human walking.
+\newblock {\em The Journal of Experimental Biology}, 219(23):3676--3683.
+
+\bibitem[Zelik et~al., 2015]{Zelik2015}
+Zelik, K.~E., Takahashi, K.~Z., and Sawicki, G.~S. (2015).
+\newblock Six degree-of-freedom analysis of hip, knee, ankle and foot provides updated understanding of biomechanical work during human walking.
+\newblock {\em Journal of Experimental Biology}, 218(6):876--886.
+
+\bibitem[Zhang et~al., 2018]{Zhang2018}
+Zhang, W., Smuck, M., Legault, C., Ith, M.~A., Muaremi, A., and Aminian, K. (2018).
+\newblock Gait {{Symmetry Assessment}} with a {{Low Back 3D Accelerometer}} in {{Post-Stroke Patients}}.
+\newblock {\em Sensors}, 18(10):3322.
+
+\bibitem[Zijlstra et~al., 2010]{Zijlstra2010}
+Zijlstra, A., Mancini, M., Chiari, L., and Zijlstra, W. (2010).
+\newblock Biofeedback for training balance and mobility tasks in older populations: A systematic review.
+\newblock {\em Journal of NeuroEngineering and Rehabilitation}, 7(1).
+
+\bibitem[Zollikofer et~al., 2005]{Zollikofer2005}
+Zollikofer, C.~P., {de Le{\'o}n}, M. S.~P., Lieberman, D.~E., Guy, F., Pilbeam, D., Likius, A., Mackaye, H.~T., Vignaud, P., and Brunet, M. (2005).
+\newblock Virtual cranial reconstruction of {{Sahelanthropus}} tchadensis.
+\newblock {\em Nature}, 434(7034):755--759.
+
+\end{thebibliography}

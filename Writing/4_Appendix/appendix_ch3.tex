@@ -1,0 +1,1652 @@
+\chapter{Code for Chapter 3}
+\label{appendix}
+\thispagestyle{myheadings}
+
+This appendix contains the programming code for Chapter 3: Validation of wearable sensors for use in estimating poststroke propulsion in the clinic.
+Code for the importing and cleaning of motion capture and IMU data was written in MATLAB 2019a (Mathworks).
+Code for processing, testing and training models was written in Python 3.12.2 (Python Software Foundation).
+
+\begin{sloppypar}
+	\section{D1\_ExtractData.m}
+	Code to extract IMU data from .txt files, written in MATLAB:
+
+	\begin{lstlisting}[language=Matlab]
+clear
+close all
+clc
+
+%% Set up
+
+% Go to main folder
+cd 'filepath'
+
+% Get ID and paretic side information
+%%% this was done manually and put in a .csv file; just reading that
+df = table2struct(readtable('Subject_Info.csv'));
+
+IMU.ID(:,1) = string({df.ID});
+IMU.Paretic(:,1) = string({df.PareticSide});
+IMU.Mass(:,1) = [df.Weight];
+
+% Assign things
+Subject = IMU.ID;
+Side = ["Paretic", "Nonparetic"];
+Day = ["NS", "S"];
+Condition = ["Pre", "Post"];
+
+%% Read in Ascii files
+
+%%% reads in each file from ID list
+
+Lthigh = "00B41CE8.txt";
+Lshank = "00B41CE5.txt";
+Lfoot = "00B41CE4.txt";
+Rthigh = "00B41CB0.txt";
+Rshank = "00B41CA6.txt";
+Rfoot = "00B41CDA.txt";
+
+for i = 1:length(Subject)
+    
+    % Get subject ID
+    sub = Subject(i);
+    
+    % Assign file path where data is located
+    folder.Data = strcat('filepath');
+    
+    % Create file names
+    left.thigh.pre.walk = strcat(sub, '_preCWS-000_', Lthigh);
+    left.shank.pre.walk = strcat(sub, '_preCWS-000_', Lshank);
+    left.foot.pre.walk = strcat(sub, '_preCWS-000_', Lfoot);
+    right.thigh.pre.walk = strcat(sub, '_preCWS-000_', Rthigh);
+    right.shank.pre.walk = strcat(sub, '_preCWS-000_', Rshank);
+    right.foot.pre.walk = strcat(sub, '_preCWS-000_', Rfoot);
+    
+    left.thigh.post.walk = strcat(sub, '_postCWS-000_', Lthigh);
+    left.shank.post.walk = strcat(sub, '_postCWS-000_', Lshank);
+    left.foot.post.walk = strcat(sub, '_postCWS-000_', Lfoot);
+    right.thigh.post.walk = strcat(sub, '_postCWS-000_', Rthigh);
+    right.shank.post.walk = strcat(sub, '_postCWS-000_', Rshank);
+    right.foot.post.walk = strcat(sub, '_postCWS-000_', Rfoot);
+    
+    
+    %% Set up file paths
+    folder.NS = strcat(folder.Data, sub, '\No Suit\IMUs\2 Exported Data');
+    
+    folder.S = strcat(folder.Data, sub, '\Suit\IMUs\2 Exported Data');
+    
+    %% Check which side is paretic
+    paretic = IMU.Paretic(i);
+    
+    % For each day (No Suit, Suit)
+    for j = 1:length(Day)
+        
+        % For each condition (Pre, Post)
+        for k = 1:length(Condition)
+            
+            % Assign day and cond
+            day = Day(j);
+            con = Condition(k);
+            
+            % Skip trials that don't have IMU data
+            if sub == "ME03" && day == "NS" ||...
+                    sub == "ME06" && day == "NS"||...
+                    sub == "ME06" && day == "S" && con == "Pre" ||...
+                    sub == "ME07" && day == "NS" ||...
+                    sub == "ME10" && day == "NS" && con == "Post" ||...
+                    sub == "ME14" && day == "S" && con == "Post" ||...
+                    sub == "ME15" && day == "S" && con == "Post"
+                
+                break
+                
+            end
+            
+            % Go to folder
+            cd(folder.(day));
+            
+            %% Import files
+            
+            if paretic == 'Right'
+                
+                % Paretic Thigh
+                IMU.(sub).(day).Pre.Paretic.Thigh.Walk = ...
+                    importdata(right.thigh.pre.walk);
+                IMU.(sub).(day).Post.Paretic.Thigh.Walk = ...
+                    importdata(right.thigh.post.walk);
+                
+                % Paretic Shank
+                IMU.(sub).(day).Pre.Paretic.Shank.Walk = ...
+                    importdata(right.shank.pre.walk);
+                IMU.(sub).(day).Post.Paretic.Shank.Walk = ...
+                    importdata(right.shank.post.walk);
+                
+                % Paretic Foot
+                IMU.(sub).(day).Pre.Paretic.Foot.Walk = ...
+                    importdata(right.foot.pre.walk);
+                IMU.(sub).(day).Post.Paretic.Foot.Walk = ...
+                    importdata(right.foot.post.walk);
+                
+                % Nonparetic Thigh
+                IMU.(sub).(day).Pre.Nonparetic.Thigh.Walk = ...
+                    importdata(left.thigh.pre.walk);
+                IMU.(sub).(day).Post.Nonparetic.Thigh.Walk = ...
+                    importdata(left.thigh.post.walk);
+                
+                % Nonparetic Shank
+                IMU.(sub).(day).Pre.Nonparetic.Shank.Walk = ...
+                    importdata(left.shank.pre.walk);
+                IMU.(sub).(day).Post.Nonparetic.Shank.Walk = ...
+                    importdata(left.shank.post.walk);
+                
+                % Nonparetic Foot
+                IMU.(sub).(day).Pre.Nonparetic.Foot.Walk = ...
+                    importdata(left.foot.pre.walk);
+                IMU.(sub).(day).Post.Nonparetic.Foot.Walk = ...
+                    importdata(left.foot.post.walk);
+                
+                
+            else
+                
+                % Nonparetic Thigh
+                IMU.(sub).(day).Pre.Nonparetic.Thigh.Walk = ...
+                    importdata(right.thigh.pre.walk);
+                IMU.(sub).(day).Post.Nonparetic.Thigh.Walk = ...
+                    importdata(right.thigh.post.walk);
+                
+                % Nonparetic Shank
+                IMU.(sub).(day).Pre.Nonparetic.Shank.Walk = ...
+                    importdata(right.shank.pre.walk);
+                IMU.(sub).(day).Post.Nonparetic.Shank.Walk = ...
+                    importdata(right.shank.post.walk);
+                
+                % Nonparetic Foot
+                IMU.(sub).(day).Pre.Nonparetic.Foot.Walk = ...
+                    importdata(right.foot.pre.walk);
+                IMU.(sub).(day).Post.Nonparetic.Foot.Walk = ...
+                    importdata(right.foot.post.walk);
+                
+                
+                % Paretic Thigh
+                IMU.(sub).(day).Pre.Paretic.Thigh.Walk = ...
+                    importdata(left.thigh.pre.walk);
+                IMU.(sub).(day).Post.Paretic.Thigh.Walk = ...
+                    importdata(left.thigh.post.walk);
+                
+                % Paretic Shank
+                IMU.(sub).(day).Pre.Paretic.Shank.Walk = ...
+                    importdata(left.shank.pre.walk);
+                IMU.(sub).(day).Post.Paretic.Shank.Walk = ...
+                    importdata(left.shank.post.walk);
+                
+                % Paretic Foot
+                IMU.(sub).(day).Pre.Paretic.Foot.Walk = ...
+                    importdata(left.foot.pre.walk);
+                IMU.(sub).(day).Post.Paretic.Foot.Walk = ...
+                    importdata(left.foot.post.walk);
+                
+            end
+            
+            
+        end
+        
+    end
+    
+    clear left right sub sns prpo folder paretic
+    
+end
+
+%% Return to main folder
+
+cd 'filepath'
+
+
+%%
+save('IMU.mat', 'IMU')
+
+\end{lstlisting}
+	\pagebreak
+
+	\section{D2\_CleanandTrim.m}
+	Code that cleans and trims IMU data, written in MATLAB:
+
+	\begin{lstlisting}[language=Matlab]
+clear
+close all
+clc
+
+%% Go to main folder
+
+cd 'filepath'
+
+% Load IMU strut
+load('IMU.mat')
+
+% Load 'All' strut so we can save to it
+load('All.mat')
+
+
+%% Filter and cut to stance phase
+
+% Assign things
+Subject = IMU.ID;
+Side = ["Paretic", "Nonparetic"];
+Day = ["NS", "S"];
+Condition = ["Pre", "Post"];
+Segment = ["Thigh", "Shank", "Foot"];
+Trial = ["Static", "Walk"];
+
+% For each subject
+for i = 1:length(Subject)
+    
+    % For each day (No Suit, Suit)
+    for j = 1:length(Day)
+        
+        % For each condition (Pre, Post)
+        for k = 1:length(Condition)
+            
+            % For each side (Paretic, Nonparetic)
+            for l = 1:length(Side)
+                
+                
+                sub = Subject(i);
+                day = Day(j);
+                con = Condition(k);
+                side = Side(l);
+                tri = Trial(2); % only use walking trials
+                
+                % Skip trials that don't have IMU data
+                if sub == "ME03" && day == "NS" ||...
+                        sub == "ME04" && day == "S" && con == "Post"||...
+                        sub == "ME06" && day == "NS"||...
+                        sub == "ME06" && day == "S" && con == "Post" ||...
+                        sub == "ME07" && day == "NS" ||...
+                        sub == "ME10" && day == "NS" && con == "Post" ||...
+                        sub == "ME14" && day == "S" && con == "Post" ||...
+                        sub == "ME15" && day == "S" && con == "Post"
+                    
+                    break
+                    
+                end
+                
+                % Combine acc and gyro data from all segments
+                thigh = IMU.(sub).(day).(con).(side).Thigh.(tri).data(2:end,2:7);
+                shank = IMU.(sub).(day).(con).(side).Shank.(tri).data(2:end,2:7);
+                foot = IMU.(sub).(day).(con).(side).Foot.(tri).data(2:end,2:7);
+                
+                % Cut to final 30 seconds
+                Fs = 100; % collection frequency
+                trim = 30; % number of seconds being trimed
+                last30 = trim*Fs; % number of data points
+                
+                thigh = thigh((end-last30):end, :);
+                shank = shank((end-last30):end, :);
+                foot = foot((end-last30):end, :);
+                
+                
+                %% Flip necessary data
+                % Right side IMUs will have their Y (Anterior/Posterior) and Z
+                % (Medial/Lateral) flipped to match the lab coordinate system;
+                % left side IMUs already match the lab
+                
+                % Check which side is paretic
+                paretic = All.Paretic(i);
+                
+                % If paretic == Right, flip paretic side
+                if paretic == "Right" && side == "Paretic"
+                    
+                    thigh(:,[2,3,5,6]) = -thigh(:,[2,3,5,6]);
+                    shank(:,[2,3,5,6]) = -shank(:,[2,3,5,6]);
+                    foot(:,[2,3,5,6]) = -foot(:,[2,3,5,6]);
+                    
+                % If paretic == Left, flip nonparetic side
+                elseif paretic == "Left" && side == "Nonparetic"
+                    
+                    thigh(:,[2,3,5,6]) = -thigh(:,[2,3,5,6]);
+                    shank(:,[2,3,5,6]) = -shank(:,[2,3,5,6]);
+                    foot(:,[2,3,5,6]) = -foot(:,[2,3,5,6]);
+                    
+                end
+                
+                % Combine data into single matrix
+                dataIn = horzcat(thigh, shank, foot);
+                
+                % Filter data using a lowpass, 2nd order
+                % butterworth filter at 10 Hz
+                nth = 2; % order
+                Wn = (1/10); % filter frequency
+                dataMid = IMUFilter(dataIn, nth, Wn); % filtered data
+                % above uses custom function 'IMUFilter'
+                
+                % Trim data to stance phase
+                dataOut = IMUStance(dataMid, sub, day, con ,side); % stance phase data
+                % above uses custom function 'IMUStance'
+                
+                % Parse out accelerometer and gyro data
+                All.(sub).(day).(con).(side).IMU.Thigh = ...
+                    dataOut.thigh;
+                All.(sub).(day).(con).(side).IMU.Shank = ...
+                    dataOut.shank;
+                All.(sub).(day).(con).(side).IMU.Foot = ...
+                    dataOut.foot;
+                
+                
+                clear sub day con side tri thigh shank foot paretic dataIN...
+                    Fs trim last30 nth Wn dataMid dataOut
+                
+                
+            end
+            
+        end
+        
+    end
+    
+end
+
+%%
+save('IMU.mat', 'IMU')
+save('All.mat', 'All')
+\end{lstlisting}
+	\pagebreak
+
+	\section{D3\_FeaturesandResponses.m}
+	Code that seperates IMU and motion capture data into features and responses, written in MATLAB:
+
+	\begin{lstlisting}[language=Matlab]
+clear all
+close all
+clc
+
+%%
+
+load('All.mat')
+
+Subject = All.ID;
+Side = ["Paretic", "Nonparetic"];
+Day = ["NS", "S"];
+Condition = ["Pre", "Post"];
+Segment = ["Thigh", "Shank", "Foot"];
+Trial = ["Walk"];
+
+%% Create subject specific models
+
+% Table headers
+tblhead = ["ThighAccX", "ThighAccY", "ThighAccZ", "ThighGyroX", "ThighGyroY", "ThighGyroZ",...
+    "ShankAccX", "ShankAccY", "ShankAccZ", "ShankGyroX", "ShankGyroY", "ShankGyroZ",...
+    "FootAccX", "FootAccY", "FootAccZ", "FootGyroX", "FootGyroY", "FootGyroZ"];
+
+% Initialize strut variables
+for i = 1:length(Subject)
+
+    for j = 1:length(Side)
+
+        for m = 1:length(Segment)
+
+            sub = Subject(i);
+            side = Side(j);
+            seg = Segment(m);
+
+            All.(sub).Features.(side).(seg).AccX = [];
+            All.(sub).Features.(side).(seg).AccY = [];
+            All.(sub).Features.(side).(seg).AccZ = [];
+            All.(sub).Features.(side).(seg).GyroX = [];
+            All.(sub).Features.(side).(seg).GyroY = [];
+            All.(sub).Features.(side).(seg).GyroZ = [];
+
+
+
+        end
+
+        All.(sub).Responses.(side).APGRF = [];
+        All.(sub).Responses.(side).BrakeMag = [];
+        All.(sub).Responses.(side).BrakeImpulse = [];
+        All.(sub).Responses.(side).PropMag = [];
+        All.(sub).Responses.(side).PropImpulse = [];
+
+    end
+
+end
+
+%%
+% Create strut w/ all features
+for i = 1:length(Subject)
+
+    for j = 1:length(Day)
+
+        for k = 1:length(Condition)
+
+            % Use try/catch to skip trials that dont' have IMU data
+            try
+
+                for l = 1:length(Side)
+
+                    for m = 1:length(Segment)
+
+                        sub = Subject(i);
+                        day = Day(j);
+                        con = Condition(k);
+                        side = Side(l);
+                        seg = Segment(m);
+
+                        % Grab IMU data (features)
+                        AccX = All.(sub).(day).(con).(side).IMU.(seg).Acc.X;
+                        AccY = All.(sub).(day).(con).(side).IMU.(seg).Acc.Y;
+                        AccZ = All.(sub).(day).(con).(side).IMU.(seg).Acc.Z;
+                        GyroX = All.(sub).(day).(con).(side).IMU.(seg).Gyro.X;
+                        GyroY = All.(sub).(day).(con).(side).IMU.(seg).Gyro.Y;
+                        GyroZ = All.(sub).(day).(con).(side).IMU.(seg).Gyro.Z;
+
+                        % Add IMU data to subject specific structs
+                        All.(sub).Features.(side).(seg).AccX =...
+                            horzcat(All.(sub).Features.(side).(seg).AccX,...
+                            AccX);
+                        All.(sub).Features.(side).(seg).AccY =...
+                            horzcat(All.(sub).Features.(side).(seg).AccY,...
+                            AccY);
+                        All.(sub).Features.(side).(seg).AccZ =...
+                            horzcat(All.(sub).Features.(side).(seg).AccZ,...
+                            AccZ);
+
+                        All.(sub).Features.(side).(seg).GyroX =...
+                            horzcat(All.(sub).Features.(side).(seg).GyroX,...
+                            GyroX);
+                        All.(sub).Features.(side).(seg).GyroY =...
+                            horzcat(All.(sub).Features.(side).(seg).GyroY,...
+                            GyroY);
+                        All.(sub).Features.(side).(seg).GyroZ =...
+                            horzcat(All.(sub).Features.(side).(seg).GyroZ,...
+                            GyroZ);
+
+                        % Clear relevant variables after use
+                        clear AccX AccY AccZ GyroX GyroY GyroZ Brake Prop
+
+                    end
+
+                    % Grab GRF metrics (responses)
+                    BrakeMag = All.(sub).(day).(con).(side).GRF.metrics.brake.peak_mag.raw;
+                    BrakeImp = All.(sub).(day).(con).(side).GRF.metrics.brake.impulse.raw;
+                    PropMag = All.(sub).(day).(con).(side).GRF.metrics.prop.peak_mag.raw;
+                    PropImp = All.(sub).(day).(con).(side).GRF.metrics.prop.impulse.raw;
+
+                    % Grab APGRF (responses)
+                    APGRF = All.(sub).(day).(con).(side).GRF.Y;
+
+                    % Add metrics to subject specific struct
+                    All.(sub).Responses.(side).BrakeMag = ...
+                        vertcat(All.(sub).Responses.(side).BrakeMag, BrakeMag);
+                    All.(sub).Responses.(side).BrakeImpulse = ...
+                        vertcat(All.(sub).Responses.(side).BrakeImpulse, BrakeImp);
+                    All.(sub).Responses.(side).PropMag = ...
+                        vertcat(All.(sub).Responses.(side).PropMag, PropMag);
+                    All.(sub).Responses.(side).PropImpulse = ...
+                        vertcat(All.(sub).Responses.(side).PropImpulse, PropImp);
+                    All.(sub).Responses.(side).APGRF = ...
+                        horzcat(All.(sub).Responses.(side).APGRF, APGRF);
+
+                    % Clear relevant variables after use
+                    clear BrakeMag BrakeImp PropMag PropImp BrakeTime PropTime
+
+                end
+
+            catch
+
+                % If there is an error - most likely to due w/ not having
+                % IMU data for this trial - display message
+                disp(strcat(sub, " does not have IMU data for the ",...
+                    day, " ", con, " condition."))
+
+            end % for try/catch
+
+
+
+        end
+
+    end
+
+end
+
+
+%% Rearrange data for ease of use
+
+Subject = All.ID;
+Side = ["Paretic", "Nonparetic"];
+Day = ["NS", "S"];
+Condition = ["Pre", "Post"];
+Segment = ["Thigh", "Shank", "Foot"];
+
+% For each subject
+for i = 1:length(Subject)
+
+    % For each side (Paretic, Nonparetic)
+    for l = 1:length(Side)
+
+        % Assign things
+        sub = Subject(i);
+        side = Side(l);
+
+        allsgm = []; % Initialize variable
+
+        % For each segment (Thigh, Shank, Foot)
+        for m = 1:length(Segment)
+
+            % Assign things
+            seg = Segment(m);
+
+            % Set up variable names for table columns
+            VarNames = cellstr({strcat(sub, side, seg, "AccX"), ...
+                strcat(sub, side, seg, "AccY"), strcat(sub, side, seg, "AccZ"),...
+                strcat(sub, side, seg, "GyroX"), strcat(sub, side, seg, "GyroY"),...
+                strcat(sub, side, seg, "GyroZ")});
+
+            % Get data for this segment in this direction and assign
+            % names
+            sgm = struct2table(All.(sub).Features.(side).(seg));
+            sgm.Properties.VariableNames = VarNames;
+
+            % Combine this w/ other segments
+            allsgm = horzcat(allsgm, sgm);
+
+            % Clear variables after use
+            clear sgm VarNames
+
+        end
+
+        % Assign data from both directions to struct
+        All.(sub).Features.(side).Combined = allsgm;
+
+        % Clear variables after use
+        clear allsgm
+
+    end
+
+
+end
+\end{lstlisting}
+	\pagebreak
+
+	\section{IMUFilter.m}
+	Code used to filter IMU data, written in MATLAB:
+
+	\begin{lstlisting}[language=Matlab]
+function dataOut = IMUFilter(dataIn, n, Wn)
+
+    [b,a] = butter(n, Wn);
+
+    dataOut = filter(b,a,dataIn);
+
+
+end
+\end{lstlisting}
+	\pagebreak
+
+	\section{IMUStance.m}
+	Code to cut IMU data into seperate stance phases, written in MATLAB:
+
+	\begin{lstlisting}[language=Matlab]
+function dataOut = IMUStance(dataIn, sub, day, con, side)
+
+% Parse out input variable
+thigh = dataIn(:,1:6);
+shank = dataIn(:,7:12);
+foot = dataIn(:,13:18);
+
+% Get vertical acc of the foot for stance trimming
+footX = foot(:,1);
+
+% Find negative peaks; must be >30% of the max negative peak
+[pk_neg, loc_neg] = findpeaks(-footX, 'MinPeakDistance', 10,...
+    'MinPeakHeight', max(-footX)*0.3);
+
+% Find positive peaks
+[pk_pos, loc_pos] = findpeaks(footX, 'MinPeakDistance', 1,...
+    'MinPeakHeight', 1);
+
+%% Exploit the pattern in foot vertical acc data
+% to determine initial contact (IC) and toe off (TO)
+
+% Stance phase starts w/ IC, so if there's any TOs before the first IC, get
+% rid of them
+
+b=1; % Counting variable
+
+% For all the positive peaks
+for a = 1:length(loc_pos)
+    
+    % If there's a positive peak before the first negative peak
+    if loc_pos(a) < loc_neg(1)
+        
+        % Adjust counter
+        b=b+1;
+        
+    end
+    
+end
+
+% Trim vector of positive peaks to start after the first negative peak
+loc_pos = loc_pos(b:end);
+
+% Stance phase ends w/ TO, so if there are any ICs after the last TO, get
+% rid of them
+
+b = 0; % Counting variable
+flip_neg = flip(loc_neg); % Flip the neg peak array so that the loop runs through in reverse order
+
+% For each negative peak (in reverse order)
+for a = 1:length(flip_neg)
+    
+    % If there's a negative peak after the last positive peak
+    if flip_neg(a) >= loc_pos(end)
+        
+        % Adjust counter
+        b=b+1;
+        
+    end
+    
+end
+
+% Trim vector of negative peaks to end after the last positive peak
+loc_neg = loc_neg(1:end-b);
+
+%%
+b = 1; % Counting variable
+negdist = 65; % Minimum number of points b/w negative peaks
+posdist = 50; % Minimum number of points b/w negative and positive peaks
+
+% For each negative peak
+for a = 2:length(loc_neg)
+    
+    
+    % If more than a certain number of points pass b/w this negative peak
+    % and the next one, this peak is the IC
+    if loc_neg(a) >= (loc_neg(a-1) + negdist)
+        
+        cut(b,1) = loc_neg(a-1); % IC
+        
+        % Find the first positive peak after IC, at least 25 points away
+        here = find(loc_pos >= loc_neg(a-1) + posdist, 1);
+        
+        % Mark that positive peak as TO
+        cut(b,2) = loc_pos(here);
+        
+        
+        
+        % Some checks based on visual inspection
+        if a > 2 && b > 2
+            
+            % If the last TO is the same as this TO, skip
+            if cut(b,2) == cut(b-1,2)
+                
+                cut(b,:) = [];
+                
+            end
+            
+            % If this IC comes before the last TO, skip last IC and TO
+            if cut(b,1) <= cut(b-1,2)
+                
+                cut(b-1,:) = [];
+
+            end
+            
+        end
+        
+        b=b+1; % Adjust counting variable
+        
+    end
+    
+    
+    
+end
+
+% Because 'cut' ends up w/ zeros sometimes and I can't figure out why
+cut = [nonzeros(cut(:,1)) nonzeros(cut(:,2))];
+
+%% Graph check
+
+fh = figure('visible', 'off');
+
+plot(footX)
+hold on
+title(strcat(sub, day, con, side, 'Foot Vert Acc'))
+for a = 1:length(cut)
+    
+    plot(cut(a,1), footX(cut(a,1)), 'rx', 'markersize', 10) % IC
+    plot(cut(a,2), footX(cut(a,2)), 'gx', 'markersize', 10) % TO
+
+end
+
+print('-bestfit', strcat(sub, day, con, side), '-dpdf')
+close gcf
+
+
+%% Trim to stance phase
+for a = 1:size(cut,1)
+    
+    % Get IC and TO for this stride
+    IC = cut(a,1);
+    TO = cut(a,2);
+    
+    % Cut segment data to this stride
+    Fcut = foot(IC:TO, :);
+    Scut = shank(IC:TO, :);
+    Tcut = thigh(IC:TO, :);
+    
+    % Resample to 100 points and assign foot data to strut
+    df.foot.Acc.X(:,a) = resample(Fcut(:,1), 100, length(Fcut));
+    df.foot.Acc.Y(:,a) = resample(Fcut(:,2), 100, length(Fcut));
+    df.foot.Acc.Z(:,a) = resample(Fcut(:,3), 100, length(Fcut));
+    
+    df.foot.Gyro.X(:,a) = resample(Fcut(:,4), 100, length(Fcut));
+    df.foot.Gyro.Y(:,a) = resample(Fcut(:,5), 100, length(Fcut));
+    df.foot.Gyro.Z(:,a) = resample(Fcut(:,6), 100, length(Fcut));
+    
+    % Resample to 100 points and assign shank data to strut
+    df.shank.Acc.X(:,a) = resample(Scut(:,1), 100, length(Scut));
+    df.shank.Acc.Y(:,a) = resample(Scut(:,2), 100, length(Scut));
+    df.shank.Acc.Z(:,a) = resample(Scut(:,3), 100, length(Scut));
+    
+    df.shank.Gyro.X(:,a) = resample(Scut(:,4), 100, length(Scut));
+    df.shank.Gyro.Y(:,a) = resample(Scut(:,5), 100, length(Scut));
+    df.shank.Gyro.Z(:,a) = resample(Scut(:,6), 100, length(Scut));
+    
+    % Resample to 100 points and assign thigh data to strut
+    df.thigh.Acc.X(:,a) = resample(Tcut(:,1), 100, length(Tcut));
+    df.thigh.Acc.Y(:,a) = resample(Tcut(:,2), 100, length(Tcut));
+    df.thigh.Acc.Z(:,a) = resample(Tcut(:,3), 100, length(Tcut));
+    
+    df.thigh.Gyro.X(:,a) = resample(Tcut(:,4), 100, length(Tcut));
+    df.thigh.Gyro.Y(:,a) = resample(Tcut(:,5), 100, length(Tcut));
+    df.thigh.Gyro.Z(:,a) = resample(Tcut(:,6), 100, length(Tcut));
+    
+    
+    
+end
+
+
+%% Output data
+dataOut = df;
+
+
+end
+\end{lstlisting}
+	\pagebreak
+
+	\section{Main.py}
+	Main script to run functions that train and test models, written in Python:
+
+	\begin{lstlisting}[language=Python]
+
+import dismod
+
+plt.style.use("seaborn-v0_8-colorblind")
+color_pal = sns.color_palette()
+
+# %%
+ME03 = mod.get_data("ME03")
+ME04 = mod.get_data("ME04")
+ME06 = mod.get_data("ME06")
+ME07 = mod.get_data("ME07")
+ME10 = mod.get_data("ME10")
+ME14 = mod.get_data("ME14")
+ME15 = mod.get_data("ME15")
+ME_All = mod.get_data("ME_All")
+
+full_part = [ME04, ME07, ME14, ME15]
+all_part = [ME03, ME04, ME06, ME07, ME10, ME14, ME15]
+
+# %%
+
+for participant in full_part:
+
+    mod.plot_metrics(participant)
+
+mod.plot_metrics(ME_All)
+# %%
+
+for participant in full_part:
+
+    mod.run_apgrf(participant, 18)
+
+mod.run_apgrf(ME_All, 18)
+
+\end{lstlisting}
+	\pagebreak
+
+	\section{dismod.py}
+	Module containing functions and dataclasses, written in Python:
+
+	\begin{lstlisting}[language=Python]
+
+import pickle
+import warnings
+from dataclasses import asdict, dataclass
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from lofo import Dataset, LOFOImportance, plot_importance
+from sklearn import linear_model
+from sklearn.feature_selection import f_regression
+from sklearn.metrics import (mean_absolute_percentage_error, r2_score,
+                             root_mean_squared_error)
+from sklearn.model_selection import (LeaveOneOut, cross_val_predict,
+                                     cross_validate, train_test_split)
+
+
+plt.style.use("fivethirtyeight")
+color_pal = sns.color_palette()
+
+
+@dataclass(frozen=True)
+class Participant:
+    def __or__(self, other):
+        return self.__class__(**asdict(self) | asdict(other))
+
+    name: str
+    apgrf: float
+
+    brake_mag: float
+    brake_imp: float
+
+    brake_thigh_accX: float
+    brake_thigh_accY: float
+    brake_thigh_accZ: float
+    brake_thigh_gyroX: float
+    brake_thigh_gyroY: float
+    brake_thigh_gyroZ: float
+
+    brake_shank_accX: float
+    brake_shank_accY: float
+    brake_shank_accZ: float
+    brake_shank_gyroX: float
+    brake_shank_gyroY: float
+    brake_shank_gyroZ: float
+
+    brake_foot_accX: float
+    brake_foot_accY: float
+    brake_foot_accZ: float
+    brake_foot_gyroX: float
+    brake_foot_gyroY: float
+    brake_foot_gyroZ: float
+
+    prop_mag: float
+    prop_imp: float
+
+    prop_thigh_accX: float
+    prop_thigh_accY: float
+    prop_thigh_accZ: float
+    prop_thigh_gyroX: float
+    prop_thigh_gyroY: float
+    prop_thigh_gyroZ: float
+
+    prop_shank_accX: float
+    prop_shank_accY: float
+    prop_shank_accZ: float
+    prop_shank_gyroX: float
+    prop_shank_gyroY: float
+    prop_shank_gyroZ: float
+
+    prop_foot_accX: float
+    prop_foot_accY: float
+    prop_foot_accZ: float
+    prop_foot_gyroX: float
+    prop_foot_gyroY: float
+    prop_foot_gyroZ: float
+
+    thigh_accX: float
+    thigh_accY: float
+    thigh_accZ: float
+    thigh_gyroX: float
+    thigh_gyroY: float
+    thigh_gyroZ: float
+
+    shank_accX: float
+    shank_accY: float
+    shank_accZ: float
+    shank_gyroX: float
+    shank_gyroY: float
+    shank_gyroZ: float
+
+    foot_accX: float
+    foot_accY: float
+    foot_accZ: float
+    foot_gyroX: float
+    foot_gyroY: float
+    foot_gyroZ: float
+
+
+@dataclass(frozen=True)
+class Results:
+    def __or__(self, other):
+        return self.__class__(**asdict(self) | asdict(other))
+
+    brake_mag: object
+    brake_imp: object
+
+    prop_mag: object
+    prop_imp: object
+
+    metrics_plot: object
+
+    apgrf: object
+
+
+def get_data(participant_name):
+    file_name = f"data/{participant_name}.xls"
+    df = pd.ExcelFile(file_name)
+
+    apgrf = pd.read_excel(df, "Sheet1", index_col=None, header=None)
+
+    brake = pd.read_excel(df, "Sheet2", index_col=None, header=None)
+    prop = pd.read_excel(df, "Sheet3", index_col=None, header=None)
+
+    brake_mag = brake.iloc[:, 0]
+    brake_imp = brake.iloc[:, 1]
+    prop_mag = prop.iloc[:, 0]
+    prop_imp = prop.iloc[:, 1]
+
+    brake_thigh_accX = brake.iloc[:, 2]
+    brake_thigh_accY = brake.iloc[:, 3]
+    brake_thigh_accZ = brake.iloc[:, 4]
+    brake_thigh_gyroX = brake.iloc[:, 5]
+    brake_thigh_gyroY = brake.iloc[:, 6]
+    brake_thigh_gyroZ = brake.iloc[:, 7]
+
+    brake_shank_accX = brake.iloc[:, 8]
+    brake_shank_accY = brake.iloc[:, 9]
+    brake_shank_accZ = brake.iloc[:, 10]
+    brake_shank_gyroX = brake.iloc[:, 11]
+    brake_shank_gyroY = brake.iloc[:, 12]
+    brake_shank_gyroZ = brake.iloc[:, 13]
+
+    brake_foot_accX = brake.iloc[:, 14]
+    brake_foot_accY = brake.iloc[:, 15]
+    brake_foot_accZ = brake.iloc[:, 16]
+    brake_foot_gyroX = brake.iloc[:, 17]
+    brake_foot_gyroY = brake.iloc[:, 18]
+    brake_foot_gyroZ = brake.iloc[:, 19]
+
+    prop_thigh_accX = prop.iloc[:, 2]
+    prop_thigh_accY = prop.iloc[:, 3]
+    prop_thigh_accZ = prop.iloc[:, 4]
+    prop_thigh_gyroX = prop.iloc[:, 5]
+    prop_thigh_gyroY = prop.iloc[:, 6]
+    prop_thigh_gyroZ = prop.iloc[:, 7]
+
+    prop_shank_accX = prop.iloc[:, 8]
+    prop_shank_accY = prop.iloc[:, 9]
+    prop_shank_accZ = prop.iloc[:, 10]
+    prop_shank_gyroX = prop.iloc[:, 11]
+    prop_shank_gyroY = prop.iloc[:, 12]
+    prop_shank_gyroZ = prop.iloc[:, 13]
+
+    prop_foot_accX = prop.iloc[:, 14]
+    prop_foot_accY = prop.iloc[:, 15]
+    prop_foot_accZ = prop.iloc[:, 16]
+    prop_foot_gyroX = prop.iloc[:, 17]
+    prop_foot_gyroY = prop.iloc[:, 18]
+    prop_foot_gyroZ = prop.iloc[:, 19]
+
+    thigh_accX = pd.read_excel(df, "Sheet4", index_col=None, header=None)
+    thigh_accY = pd.read_excel(df, "Sheet5", index_col=None, header=None)
+    thigh_accZ = pd.read_excel(df, "Sheet6", index_col=None, header=None)
+    thigh_gryoX = pd.read_excel(df, "Sheet7", index_col=None, header=None)
+    thigh_gyroY = pd.read_excel(df, "Sheet8", index_col=None, header=None)
+    thigh_gyroZ = pd.read_excel(df, "Sheet9", index_col=None, header=None)
+
+    shank_accX = pd.read_excel(df, "Sheet10", index_col=None, header=None)
+    shank_accY = pd.read_excel(df, "Sheet11", index_col=None, header=None)
+    shank_accZ = pd.read_excel(df, "Sheet12", index_col=None, header=None)
+    shank_gryoX = pd.read_excel(df, "Sheet13", index_col=None, header=None)
+    shank_gyroY = pd.read_excel(df, "Sheet14", index_col=None, header=None)
+    shank_gyroZ = pd.read_excel(df, "Sheet15", index_col=None, header=None)
+
+    foot_accX = pd.read_excel(df, "Sheet16", index_col=None, header=None)
+    foot_accY = pd.read_excel(df, "Sheet17", index_col=None, header=None)
+    foot_accZ = pd.read_excel(df, "Sheet18", index_col=None, header=None)
+    foot_gryoX = pd.read_excel(df, "Sheet19", index_col=None, header=None)
+    foot_gyroY = pd.read_excel(df, "Sheet20", index_col=None, header=None)
+    foot_gyroZ = pd.read_excel(df, "Sheet21", index_col=None, header=None)
+
+    return Participant(
+        participant_name,
+        apgrf,
+        brake_mag,
+        brake_imp,
+        brake_thigh_accX,
+        brake_thigh_accY,
+        brake_thigh_accZ,
+        brake_thigh_gyroX,
+        brake_thigh_gyroY,
+        brake_thigh_gyroZ,
+        brake_shank_accX,
+        brake_shank_accY,
+        brake_shank_accZ,
+        brake_shank_gyroX,
+        brake_shank_gyroY,
+        brake_shank_gyroZ,
+        brake_foot_accX,
+        brake_foot_accY,
+        brake_foot_accZ,
+        brake_foot_gyroX,
+        brake_foot_gyroY,
+        brake_foot_gyroZ,
+        prop_mag,
+        prop_imp,
+        prop_thigh_accX,
+        prop_thigh_accY,
+        prop_thigh_accZ,
+        prop_thigh_gyroX,
+        prop_thigh_gyroY,
+        prop_thigh_gyroZ,
+        prop_shank_accX,
+        prop_shank_accY,
+        prop_shank_accZ,
+        prop_shank_gyroX,
+        prop_shank_gyroY,
+        prop_shank_gyroZ,
+        prop_foot_accX,
+        prop_foot_accY,
+        prop_foot_accZ,
+        prop_foot_gyroX,
+        prop_foot_gyroY,
+        prop_foot_gyroZ,
+        thigh_accX,
+        thigh_accY,
+        thigh_accZ,
+        thigh_gryoX,
+        thigh_gyroY,
+        thigh_gyroZ,
+        shank_accX,
+        shank_accY,
+        shank_accZ,
+        shank_gryoX,
+        shank_gyroY,
+        shank_gyroZ,
+        foot_accX,
+        foot_accY,
+        foot_accZ,
+        foot_gryoX,
+        foot_gyroY,
+        foot_gyroZ,
+    )
+
+
+def get_brake(participant):
+
+    brake_mag = participant.brake_mag
+    brake_imp = participant.brake_imp
+
+    X = pd.DataFrame(
+        [
+            participant.brake_thigh_accX,
+            participant.brake_thigh_accY,
+            participant.brake_thigh_accZ,
+            participant.brake_thigh_gyroX,
+            participant.brake_thigh_gyroY,
+            participant.brake_thigh_gyroZ,
+            participant.brake_shank_accX,
+            participant.brake_shank_accY,
+            participant.brake_shank_accZ,
+            participant.brake_shank_gyroX,
+            participant.brake_shank_gyroY,
+            participant.brake_shank_gyroZ,
+            participant.brake_foot_accX,
+            participant.brake_foot_accY,
+            participant.brake_foot_accZ,
+            participant.brake_foot_gyroX,
+            participant.brake_foot_gyroY,
+            participant.brake_foot_gyroZ,
+        ]
+    ).T
+
+    return X, brake_mag, brake_imp
+
+
+def get_prop(participant):
+
+    prop_mag = participant.prop_mag
+    prop_imp = participant.prop_imp
+
+    X = pd.DataFrame(
+        [
+            participant.prop_thigh_accX,
+            participant.prop_thigh_accY,
+            participant.prop_thigh_accZ,
+            participant.prop_thigh_gyroX,
+            participant.prop_thigh_gyroY,
+            participant.prop_thigh_gyroZ,
+            participant.prop_shank_accX,
+            participant.prop_shank_accY,
+            participant.prop_shank_accZ,
+            participant.prop_shank_gyroX,
+            participant.prop_shank_gyroY,
+            participant.prop_shank_gyroZ,
+            participant.prop_foot_accX,
+            participant.prop_foot_accY,
+            participant.prop_foot_accZ,
+            participant.prop_foot_gyroX,
+            participant.prop_foot_gyroY,
+            participant.prop_foot_gyroZ,
+        ]
+    ).T
+
+    return X, prop_mag, prop_imp
+
+
+def LOFO(X, y):
+    labels = [
+        "y",
+        "Thigh Acc X",
+        "Thigh Acc Y",
+        "Thigh Acc Z",
+        "Thigh Gyro X",
+        "Thigh Gyro Y",
+        "Thigh Gyro Z",
+        "Shank Acc X",
+        "Shank Acc Y",
+        "Shank Acc Z",
+        "Shank Gyro X",
+        "Shank Gyro Y",
+        "Shank Gyro Z",
+        "Foot Acc X",
+        "Foot Acc Y",
+        "Foot Acc Z",
+        "Foot Gyro X",
+        "Foot Gyro Y",
+        "Foot Gyro Z",
+    ]
+
+    df = pd.concat([y, X], axis=1)
+    df.columns = labels
+
+    model = linear_model.LinearRegression()
+    cv = LeaveOneOut()
+
+    dataset = Dataset(df=df, target="y", features=[col for col in df if col != "y"])
+    lofo_imp = LOFOImportance(
+        dataset, model=model, cv=cv, scoring="neg_root_mean_squared_error"
+    )
+    importance_df = lofo_imp.get_importance()
+
+    # hold = importance_df[importance_df['importance_mean'] > 0]['feature']
+    hold = importance_df["feature"][0:3]
+    selected = [labels.index(hold) if hold in labels else -1 for hold in hold]
+    print(f"Features selected: {list(hold)}")
+
+    return selected, hold
+
+
+def LOOF(X, y, data):
+
+    if data == "metrics":
+
+        strides = np.size(y)
+        metrics = np.shape(X)[1]
+        final_ranks = np.empty(metrics) * 0
+        for i in range(metrics):
+
+            X_train = np.delete(X, i, axis=1)
+            f_stat, p_values = f_regression(X_train, y)
+            order = f_stat.argsort()
+            ranks = order.argsort()
+
+            final_ranks = final_ranks + np.insert(ranks, i, 0)
+
+        hold = np.argpartition(final_ranks, 3)
+
+    if data == "apgrf":
+
+        strides = np.shape(y)[1]
+        metrics = np.shape(X)[2]
+        final_ranks = np.empty(metrics) * 0
+        for i in range(metrics):
+
+            X_hold = np.delete(X, i, axis=2)
+
+            for k in range(strides):
+
+                f_stat, p_values = f_regression(X_hold[k, :, :], y[:, k])
+                order = f_stat.argsort()
+                ranks = order.argsort()
+
+                final_ranks = final_ranks + np.insert(ranks, i, 0)
+
+        hold = np.argpartition(final_ranks, 3)
+
+    return hold
+
+
+def train_metrics(X, y):
+
+    model = linear_model.LinearRegression()
+    cv = LeaveOneOut()
+    scoring = [
+        "neg_mean_absolute_percentage_error",
+        "neg_root_mean_squared_error",
+    ]  # , 'r2']
+    scores = cross_validate(
+        model, X, y, scoring=scoring, cv=cv, return_train_score=True
+    )
+    y_pred = cross_val_predict(model, X, y, cv=cv)
+
+    y_mean = np.mean(y)
+    y_std = np.std(y)
+    y_pred_mean = np.mean(y_pred)
+    y_pred_std = np.std(y_pred)
+    MAPE_mean = np.mean(np.abs(scores["test_neg_mean_absolute_percentage_error"]))
+    MAPE_std = np.std(np.abs(scores["test_neg_mean_absolute_percentage_error"]))
+    RMSE_mean = np.mean(scores["test_neg_root_mean_squared_error"])
+    RMSE_std = np.std(scores["test_neg_root_mean_squared_error"])
+
+    print(f"Y mean: {y_mean:.2f}, StD: {y_std:.2f}")
+    print(f"Y Est mean: {y_pred_mean:.2f}, StD: {y_pred_std:.2f}")
+    print(f"MAPE mean: {MAPE_mean:.2f}, StD: {MAPE_std:.2f}")
+    print(f"RMSE mean: {RMSE_mean:.2f}, StD: {RMSE_std:.2f}")
+
+    return model, y_pred_mean, y_pred_std, MAPE_mean, MAPE_std, RMSE_mean, RMSE_std
+
+
+def run_brake(participant):
+
+    X, mag, imp = get_brake(participant)
+
+    print("Metric: Peak Brake Magnitude")
+    print("-----------------")
+    # selected =  LOOF(X, mag, 'metrics')
+    selected, feature_list = LOFO(X, mag)
+    X_selected = X.iloc[:, selected]
+    mag_model, mag_mean, mag_std, mape_mean, mape_std, rmse_mean, rmse_std = (
+        train_metrics(X_selected, mag)
+    )
+    save_metrics(
+        "Peak Braking Magnitude",
+        participant.name,
+        feature_list,
+        mag,
+        mag_mean,
+        mag_std,
+        mape_mean,
+        mape_std,
+        rmse_mean,
+        rmse_std,
+    )
+    print("\n")
+
+    print("Metric: Brake Impulse")
+    print("-----------------")
+    # selected =  LOOF(X, imp, 'metrics')
+    selected, feature_list = LOFO(X, imp)
+    X_selected = X.iloc[:, selected]
+    imp_model, imp_mean, imp_std, mape_mean, mape_std, rmse_mean, rmse_std = (
+        train_metrics(X_selected, imp)
+    )
+    save_metrics(
+        "Braking Impulse",
+        participant.name,
+        feature_list,
+        imp,
+        imp_mean,
+        imp_std,
+        mape_mean,
+        mape_std,
+        rmse_mean,
+        rmse_std,
+    )
+    print("\n")
+
+    means = [mag_mean, imp_mean]
+    stds = [mag_std, imp_std]
+
+    mag_fn = f"models/{participant.name}_brakemag"
+    pickle.dump(mag_model, open(mag_fn, "wb"))
+    # participant.model_brakemag = mag_model
+
+    imp_fn = f"models/{participant.name}_brakeimp"
+    pickle.dump(imp_model, open(imp_fn, "wb"))
+    # participant.model_brakeimp = imp_model
+
+    return means, stds
+
+
+def run_prop(participant):
+
+    X, mag, imp = get_prop(participant)
+
+    print("Metric: Peak Propulsion Magnitude")
+    print("-----------------")
+    # selected =  LOOF(X, mag, 'metrics')
+    selected, feature_list = LOFO(X, mag)
+    X_selected = X.iloc[:, selected]
+    mag_model, mag_mean, mag_std, mape_mean, mape_std, rmse_mean, rmse_std = (
+        train_metrics(X_selected, mag)
+    )
+    save_metrics(
+        "Peak Propulsion Magnitude",
+        participant.name,
+        feature_list,
+        mag,
+        mag_mean,
+        mag_std,
+        mape_mean,
+        mape_std,
+        rmse_mean,
+        rmse_std,
+    )
+    print("\n")
+
+    print("Metric: Propulsion Impulse")
+    print("-----------------")
+    # selected =  LOOF(X, imp, 'metrics')
+    selected, feature_list = LOFO(X, imp)
+    X_selected = X.iloc[:, selected]
+    imp_model, imp_mean, imp_std, mape_mean, mape_std, rmse_mean, rmse_std = (
+        train_metrics(X_selected, imp)
+    )
+    save_metrics(
+        "Propulsion Impulse",
+        participant.name,
+        feature_list,
+        imp,
+        imp_mean,
+        imp_std,
+        mape_mean,
+        mape_std,
+        rmse_mean,
+        rmse_std,
+    )
+    print("\n")
+
+    means = [mag_mean, imp_mean]
+    stds = [mag_std, imp_std]
+
+    mag_fn = f"models/{participant.name}_propmag"
+    pickle.dump(mag_model, open(mag_fn, "wb"))
+    # participant.model_propmag = mag_model
+
+    imp_fn = f"models/{participant.name}_propimp"
+    pickle.dump(imp_model, open(imp_fn, "wb"))
+    # participant.model_propimp = imp_model
+
+    return means, stds
+
+
+def save_metrics(
+    metric_name,
+    participant_name,
+    feature_list,
+    y,
+    y_pred_mean,
+    y_pred_std,
+    mape_mean,
+    mape_std,
+    rmse_mean,
+    rmse_std,
+):
+    y_mean = np.mean(y)
+    y_std = np.std(y)
+
+    metrics = pd.DataFrame([y_mean, y_std, y_pred_mean, y_pred_std]).T
+    errors = pd.DataFrame([mape_mean, mape_std, rmse_mean, rmse_std]).T
+    df = pd.concat([metrics, errors])
+
+    file_path = f"{participant_name}_metrics.txt"
+    with open(file_path, "a") as f:
+        f.write(f"{metric_name}\n")
+        f.write("---------------------\n")
+        f.write(f"{list(feature_list)}\n")
+        f.write(f"Measured: {y_mean:.2f}, StD: {y_std:.2f}\n")
+        f.write(f"Estimated: {y_pred_mean:.2f}, StD: {y_pred_std:.2f}\n")
+        f.write(f"MAPE mean: {mape_mean:.2f}, StD: {mape_std:.2f}\n")
+        f.write(f"RMSE mean: {rmse_mean:.2f}, StD: {rmse_std:.2f}\n")
+        f.write("\n")
+
+
+def plot_metrics(participant):
+    print(f"{participant.name}")
+    brake_mag, brake_imp = get_brake(participant)[1:]
+    prop_mag, prop_imp = get_prop(participant)[1:]
+
+    brake_mag_mean = np.mean(brake_mag)
+    brake_mag_std = np.std(brake_mag)
+    brake_imp_mean = np.mean(brake_imp)
+    brake_imp_std = np.std(brake_imp)
+    prop_mag_mean = np.mean(prop_mag)
+    prop_mag_std = np.std(prop_mag)
+    prop_imp_mean = np.mean(prop_imp)
+    prop_imp_std = np.std(prop_imp)
+    brake_est_means, brake_est_stds = run_brake(participant)
+    prop_est_means, prop_est_stds = run_prop(participant)
+
+    metrics = (
+        "Peak Braking\nMagnitude",
+        "Braking\nImpulse",
+        "Peak Propulsion\nMagnitude",
+        "Propulsion\nImpulse",
+    )
+    heights = {
+        "Measured": np.round(
+            (-brake_mag_mean, -brake_imp_mean, prop_mag_mean, prop_imp_mean), 2
+        ),
+        "Estimated": np.round(
+            (
+                -brake_est_means[0],
+                -brake_est_means[1],
+                prop_est_means[0],
+                prop_est_means[1],
+            ),
+            2,
+        ),
+    }
+
+    std_bars = [
+        brake_mag_std / 2,
+        brake_est_stds[0],
+        brake_imp_std / 2,
+        brake_est_stds[1],
+        prop_mag_std / 2,
+        prop_est_stds[0],
+        prop_imp_std / 2,
+        prop_est_stds[1],
+    ]
+
+    x = np.arange(len(metrics))
+    width = 0.25
+    multiplier = 0
+    i = 0
+
+    fig, ax = plt.subplots(layout="constrained")
+
+    for measure, result in heights.items():
+
+        offset = width * multiplier
+        rects = ax.bar(
+            x + offset,
+            result,
+            width,
+            label=measure,
+            yerr=std_bars[i],  # / 2,
+            error_kw={"elinewidth": 1, "capsize": 3, "capthick": 1},
+        )
+        ax.bar_label(rects, padding=3)
+        multiplier += 1
+        i += 1
+
+    ax.set_ylim(0, np.max(np.abs(brake_mag_mean)) + np.max(std_bars) + 2)
+    ax.set_title(f"{participant.name} Metrics")
+    ax.set_xticks(x + (width / 2), metrics)
+    ax.legend(loc="upper center", ncols=2)
+
+    # plt.show()
+
+    filename = f"figures/{participant.name}_metrics.pdf"
+    plt.savefig(filename, bbox_inches="tight")
+
+    return fig
+
+def get_APGRF(participant):
+
+    y = np.array(participant.apgrf)
+    X = np.array(
+        [
+            participant.thigh_accX,
+            participant.thigh_accY,
+            participant.thigh_accZ,
+            participant.thigh_gyroX,
+            participant.thigh_gyroY,
+            participant.thigh_gyroZ,
+            participant.shank_accX,
+            participant.shank_accY,
+            participant.shank_accZ,
+            participant.shank_gyroX,
+            participant.shank_gyroY,
+            participant.shank_gyroZ,
+            participant.foot_accX,
+            participant.foot_accY,
+            participant.foot_accZ,
+            participant.foot_gyroX,
+            participant.foot_gyroY,
+            participant.foot_gyroZ,
+        ]
+    )
+
+    strides = np.shape(y)[1]
+    metrics = np.shape(X)[0]
+    X_hold = np.empty([strides, 100, metrics]) * 0
+    for i in range(strides):
+
+        X_hold[i, :, :] = X[:, :, i].T
+
+    return X_hold, y
+
+
+def features_apgrf(X, y, feature_count):
+    labels = [
+        "Thigh Acc X",
+        "Thigh Acc Y",
+        "Thigh Acc Z",
+        "Thigh Gyro X",
+        "Thigh Gyro Y",
+        "Thigh Gyro Z",
+        "Shank Acc X",
+        "Shank Acc Y",
+        "Shank Acc Z",
+        "Shank Gyro X",
+        "Shank Gyro Y",
+        "Shank Gyro Z",
+        "Foot Acc X",
+        "Foot Acc Y",
+        "Foot Acc Z",
+        "Foot Gyro X",
+        "Foot Gyro Y",
+        "Foot Gyro Z",
+    ]
+
+    rank = LOOF(X, y, data="apgrf")
+    print("-----------")
+    print("Features selected: ")
+
+    for n in range(feature_count):
+        print(labels[rank[n]])
+
+    return rank[0:feature_count]
+
+
+def split_apgrf(X, y, train_size):
+
+    # train_size = 0.75
+    cut = np.int32(np.round(np.shape(y)[1] * train_size, decimals=0))
+    cut / np.shape(y)[1]
+    train = cut / np.shape(y)[1]
+
+    X_hold = np.reshape(X, (-1, X.shape[2]), order="F")
+    y_hold = y.flatten(order="F")
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_hold, y_hold, train_size=train, random_state=305
+    )
+
+    X_train = np.reshape(X_train, (-1, 100, 18))
+    y_train = np.reshape(y_train, (100, -1))
+
+    return X_train, X_test, y_train, y_test
+
+
+def train_apgrf(X, y, metrics):
+
+    strides = y.shape[1]
+
+    reg = linear_model.SGDRegressor()
+
+    for i in range(strides - 1):
+
+        X_hold = X[i, :, metrics].T
+        y_hold = y[:, i]
+        reg.partial_fit(X_hold, y_hold)
+
+    y_pred = reg.predict(X[i + 1, :, metrics].T)
+    y_test = y[:, i + 1]
+    print(f"MAPE: {mean_absolute_percentage_error(y_test, y_pred):.2f}")
+    print(f"RMSE: {root_mean_squared_error(y_test, y_pred):.2f}")
+    print(f"R2: {r2_score(y_test, y_pred):.2f}")
+
+    return reg
+
+
+def plot_apgrf(y_test, y_pred):
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.plot(range(len(y_test)), y_test, color=color_pal[0], label="Measured")
+    ax.plot(range(len(y_pred)), y_pred, color=color_pal[1], label="Estimated")
+    ax.legend(loc="upper center", ncols=2)
+    ax.set_ylabel("%BW")
+    ax.set_xlabel("% Stance")
+
+    return fig, ax
+
+
+def save_apgrf(participant, y_test, y_pred):
+    y_test_hold = np.reshape(y_test, (100, -1))
+    y_test_avg = np.mean(y_test_hold, axis=1)
+    y_pred_hold = np.reshape(y_pred, (100, -1))
+    y_pred_avg = np.mean(y_pred_hold, axis=1)
+    df = pd.DataFrame([y_test_avg, y_pred_avg]).T
+    df.to_csv(f"{participant.name}.txt", header=None, index=None, sep=",", mode="w")
+
+
+def run_apgrf(participant, features):
+
+    X, y = get_APGRF(participant)
+    metrics = features_apgrf(X, y, features)
+
+    X_train, X_test, y_train, y_test = split_apgrf(X, y, 0.7)
+
+    model = train_apgrf(X_train, y_train, metrics)
+
+    y_pred = model.predict(X_test)
+
+    save_apgrf(participant, y_test, y_pred)
+
+    fig, ax = plot_apgrf(y_test, y_pred)
+    ax.set_title(f"{participant.name} APGRF")
+    filename = f"figures/{participant.name}_apgrf.pdf"
+    plt.savefig(filename, bbox_inches="tight")
+    plt.close(fig)
+
+\end{lstlisting}
+\end{sloppypar}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,557 @@
+\chapter{Code for Chapter 2}
+\label{appendix}
+\thispagestyle{myheadings}
+
+\lstset{
+	xleftmargin=0.05\textwidth
+}
+
+This appendix contains the programming code for Chapter 2: Evaluation of propulsion metrics on long distance walking function.
+All code was written in MATLAB 2019a (Mathworks).
+
+\section{T1\_ExtractData.m}
+Code to extract motion capture data:
+
+\begin{lstlisting}[language=Matlab]
+clear
+close all
+clc
+
+%%
+
+cd 'filepath'
+
+% Get ID and paretic side information
+%%% this was done manually and put in a .csv file; just reading that
+df = table2struct(readtable('Subject_Info.csv'));
+
+All.ID(:,1) = string({df.ID});
+All.Paretic(:,1) = string({df.PareticSide});
+All.Mass(:,1) = [df.Weight];
+
+Subject = All.ID;
+Side = ["Paretic", "Nonparetic"];
+Day = ["NS", "S"];
+Condition = ["Pre", "Post"];
+
+%% Read in Ascii files
+
+%%% reads in each file from ID list
+
+for i = 1:length(Subject)
+    
+    sub = Subject(i);
+    folder.Data = 'filepath';
+    
+    % Create file names
+    file1 = strcat(sub, '_Left.txt');
+    file2 = strcat(sub, '_Right.txt');
+    
+    % Set up file paths
+    folder.NS.Pre = strcat(folder.Data, sub, '\No Suit\4 Exported Data\Pre');
+    folder.NS.Post = strcat(folder.Data, sub, '\No Suit\4 Exported Data\Post');
+    
+    folder.S.Pre = strcat(folder.Data, sub, '\Suit\4 Exported Data\Pre');
+    folder.S.Post = strcat(folder.Data, sub, '\Suit\4 Exported Data\Post');
+    
+    % Check which side is paretic
+    paretic = All.Paretic(i);
+    
+    for j = 1:length(Day)
+
+        for k = 1:length(Condition)
+            
+            day = Day(j);
+            cond = Condition(k);
+            
+            cd(folder.(day).(cond));
+            
+            % Import files
+            left = importdata(file1);
+            right = importdata(file2);
+            
+            if paretic == 'Right'
+                
+                All.(sub).(day).(cond).Paretic = right;
+                All.(sub).(day).(cond).Nonparetic = left;
+                
+            else
+                
+                All.(sub).(day).(cond).Paretic = left;
+                All.(sub).(day).(cond).Nonparetic = right;
+                
+            end
+            
+
+        end
+     
+    end
+
+    clear file1 file2 left right sub sns prpo folder paretic
+    
+end
+
+
+cd 'filepath'
+
+
+%% Extract and Normalize GRFs
+
+% g = 9.8;
+
+for i = 1:length(Subject) % subject
+    
+    sub = Subject(i);
+    
+    for j = 1:length(Day) % day
+        
+        day = Day(j);
+        
+        for k = 1:length(Condition) % condition
+            
+            con = Condition(k);
+            
+            for l = 1:length(Side) % side
+                
+                side = Side(l);
+                
+                % Get data and replace NaNs w/ zeros
+                blah = All.(sub).(day).(con).(side).data(:,2:end);
+                blah(isnan(blah)) = 0;
+                
+                % Initialize counter variable
+                m = 1;
+                
+                % For each stride (set of x, y and z)
+                for n = 1:3:size(blah,2)
+                    
+                    % Get single stride
+                    stride = blah(:,n:(n+2)); 
+                    
+                    % Remove zeros from arrays
+                    x = nonzeros(stride(:,1));
+                    y = nonzeros(stride(:,2));
+                    z = nonzeros(stride(:,3));
+                    
+                    % Resample to 100 points
+                    X = resample(x,100,length(x));
+                    Y = resample(y,100,length(y));
+                    Z = resample(z,100,length(z));
+                    
+                    % Move to structure
+                    All.(sub).(day).(con).(side).GRF.X(:,m) = X*100;
+                    All.(sub).(day).(con).(side).GRF.Y(:,m)  = Y*100;
+                    All.(sub).(day).(con).(side).GRF.Z(:,m)  = Z*100;
+                    
+                    % Add to counter
+                    m = m+1;
+                    
+                end
+                
+                clear stride m x y z X Y Z
+                
+            end
+            
+            clear side blah
+            
+        end
+        
+        clear con
+        
+    end
+    
+    clear day
+    
+end
+
+clear sub g
+
+
+%%
+save('All.mat', 'All')
+
+\end{lstlisting}
+\pagebrake
+
+\section{T2\_CalculateMetrics.m}
+Code to calculate metrics of APGRF curve:
+
+\begin{lstlisting}[language=Matlab]
+clear
+close all
+clc
+
+% Load file w/ data
+load('All.mat')
+
+% Get number of subjects
+Subject = All.ID;
+Side = ["Paretic", "Nonparetic"];
+Day = ["NS", "S"];
+Condition = ["Pre", "Post"];
+
+
+%% Calculate metrics - % stance time
+
+% For each subject
+for i = 1:length(Subject)
+    
+    sub = Subject(i);
+    
+    % For each day
+    for j = 1:length(Day)
+        
+        day = Day(j);
+        
+        % For each condition
+        for k = 1:length(Condition)
+            
+            con = Condition(k);
+            
+            % For each side
+            for l = 1:length(Side)
+                
+                side = Side(l);
+                
+                % Get APGRF
+                obj = All.(sub).(day).(con).(side).GRF.Y;
+                
+                % For each stride
+                for n = 1:size(obj,2)
+                    
+                    % Get stride
+                    stride = obj(:,n);
+                    
+                    %% Find when max braking and propulsion magnitude occurs for each stride
+                    prop.peak.mag(n,:) = max(stride(40:end));  % assume prop happens after 40% stance
+                    brake.peak.mag(n,:) = min(stride(10:50)); % assume braking happens 10-50% stance
+                    
+                    brake.peak.time(n,:) = find(stride == brake.peak.mag(n)); % location of peak brake per stride
+                    prop.peak.time(n,:) = find(stride == prop.peak.mag(n)); % location of peak prop per stride
+                    
+                    %% Find propulsion onset (zero crossing)
+                    section = stride(brake.peak.time(n):prop.peak.time(n)); % get array from braking to prop maxes
+                    pos = find(section >= 0, 1); % find first propulsion onset value
+                    
+                    % If there's no braking phase
+                    if brake.peak.mag(n) >= 0
+                        
+                        prop.onset(n,:) = brake.peak.time(n);
+                        
+                    % If there's a point at y=0 (highly unlikely)
+                    elseif section(pos) == 0
+                        
+                        prop.onset(n,:) = brake.peak.time(n) + pos - 1;
+                        
+                    % If there's no propulsion
+                    elseif isempty(pos)
+                        
+                        prop.onset(n,:) = 0;
+                        
+                    % If pos ~= 0 (very likely)
+                    else
+                        
+                        neg = pos - 1; % get last negative value
+                        rise = section(pos) + (-section(neg)); % calculate change in y
+                        run = pos - neg; % calculate change in x (probably 1)
+                        slope = rise / run; % find slope b/w last negative and first positive points
+                        chy = abs(section(neg)); % change in y from last negative to y=0
+                        prchy = chy / slope; % percent change in y compared to slope
+                        chx = run * prchy; % percent change in x from last negative to y=0
+                        cross = neg + chx; % change in x from last negative to y=0
+                        prop.onset(n,:) = brake.peak.time(n) + cross - 1; % calculate x when y=0
+                        
+                    end
+                    
+                    % Clear variables for future use
+                    clear section pos neg rise run slope chy prchy chx cross
+                    
+                    %% Find end of propulsion
+                    section = stride(prop.peak.time(n):end); % from peak propulsion to end of stride
+                    neg = find(section <=0,1); % find that dip below zero at the end of stance
+                    
+                    % If there's no dip below zero at the end
+                    if isempty(neg)
+                        
+                        prop.end(n,:) = length(stride);
+                        
+                    % If there's a point at y=0 (highly unlikely)
+                    elseif section(neg) == 0
+                        
+                        prop.end(n,:) = prop.peak.time(n) + neg - 1;
+                        
+                    % If there's no propulsion
+                    elseif prop.onset(n,:) == 0
+                        
+                        prop.end(n,:) = 0;
+                        
+                    % If neg ~= 0 (very likely)
+                    else
+                        
+                        pos = neg - 1; % get last positive value
+                        rise = section(pos) + (-section(neg)); % calculate change in y
+                        run = neg - pos; % calculate change in x (probably 1)
+                        slope = rise / run; % find neg b/w last negative and first positive points
+                        chy = rise - (-section(neg)); % change in y from last negative to y=0
+                        prchy = chy / slope; % percent change in y compared to slope
+                        chx = run * prchy; % percent change in x from last negative to y=0
+                        cross = pos + chx; % change in x from last negative to y=0
+                        prop.end(n,:) = prop.peak.time(n) + cross - 1; % calculate x when y=0
+                        
+                    end
+                    
+                    % Clear variables for future use
+                    clear section pos neg rise run slope chy prchy chx cross
+                    
+                    %% Calculate total propulsion time
+                    prop.time(n,:) = prop.end(n) - prop.onset(n);
+                    
+                    %% Calculate propulsion impulse
+                    
+                    % If there's no proulsion
+                    if prop.onset(n,:) == 0
+                        
+                        prop.impulse(n,:) = 0;
+                        
+                    % If there is propulsion
+                    else
+                        
+                        section = stride(ceil(prop.onset(n)):ceil(prop.end(n))); % get propulsion part
+                        prop.impulse(n,:) = trapz(section) / length(stride); % take integral, divide by total number of points
+                        
+                    end
+                    
+                    % Clear variables for future use
+                    clear section
+                    
+                    %% Find braking onset
+                    section = stride(1:brake.peak.time(n)); % get array from beginning to peak braking
+                    pos = find(section >=0, 1, 'last'); % find all positive values - last one will be right before braking
+                    
+                    % If there's no braking phase
+                    if brake.peak.mag(n) >= 0
+                        
+                        brake.onset(n,:) = NaN;
+                        
+                     % If there's no propulsion before peak braking
+                    elseif isempty(pos)
+                        
+                        brake.onset(n,:) = 1;  % set braking onset at beginning
+                        
+                    % If there's some propulsion before peak braking
+                    else
+                        
+                        % If there's a point at y=0 (highly unlikely)
+                        if pos == 0
+                            
+                            brake.onset(n,:) = pos - 1;
+                            
+                            % If pos ~= 0 (very likely)
+                        else
+                            
+                            neg = pos + 1; % get first negative value
+                            rise = section(pos) + (-section(neg)); % calculate change in y
+                            run = pos - neg; % calculate change in x (probably -1)
+                            slope = rise / run; % find slope b/w last positive and first negative points
+                            chy = section(pos); % change in y from last positive to y=0
+                            prchy = chy / slope; % percent change in y compared to slope
+                            chx = run * prchy; % percent change in x from last positive to y=0
+                            cross = pos + chx; % change in x from last negative to y=0
+                            brake.onset(n,:) = cross; % calculate x when y=0
+                            
+                        end
+                        
+                    end
+                    
+                    % Clear variables for future use
+                    clear section pos neg rise run slope chy prchy chx cross
+                    
+                    %% Calculate total braking time
+                    
+                    % If there's no braking phase
+                    if brake.peak.mag(n) >= 0
+                        
+                        brake.time(n,:) = 0;
+                        
+                    % If there IS a braking phase
+                    else
+                        
+                        brake.time(n,:) = prop.onset(n) - brake.onset(n);
+                        
+                    end
+                    
+                    %% Calculate braking impulse
+                    
+                    % If there's no braking phase
+                    if brake.peak.mag(n) >= 0
+                        
+                        brake.impulse(n,:) = 0;
+                        
+                    % If there IS a braking phase
+                    else
+                        
+                        section = stride(ceil(brake.onset(n)):floor(prop.onset(n))); % get braking part
+                        brake.impulse(n,:) = trapz(section) / length(stride); % take integral, divide by total number of points
+                        
+                    end
+                    
+                    % Clear variables for future use
+                    clear section
+                    
+                    %% Calculate time b/w peak braking and peak propulsion
+                    time_bw(n,:) = prop.peak.time(n) - brake.peak.time(n);
+                    
+                end
+                
+                %% Transfer things to the structure
+                
+                % Braking onset time
+                All.(sub).(day).(con).(side).GRF.metrics.brake.onset.raw...
+                    = brake.onset; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.brake.onset.mean...
+                    = mean(brake.onset); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.brake.onset.median...
+                    = median(brake.onset); % median
+                All.(sub).(day).(con).(side).GRF.metrics.brake.onset.std...
+                    = std(brake.onset); % standard deviation
+                
+                % Braking peak time
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_time.raw...
+                    = brake.peak.time; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_time.mean...
+                    = mean(brake.peak.time); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_time.median...
+                    = median(brake.peak.time); % median
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_time.std...
+                    = std(brake.peak.time); % standard deviation
+                
+                % Braking peak magnitude
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_mag.raw...
+                    = brake.peak.mag; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_mag.mean...
+                    = mean(brake.peak.mag); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_mag.median...
+                    = median(brake.peak.mag); % median
+                All.(sub).(day).(con).(side).GRF.metrics.brake.peak_mag.std...
+                    = std(brake.peak.mag); % standard deviation
+                
+                % Braking impulse
+                All.(sub).(day).(con).(side).GRF.metrics.brake.impulse.raw...
+                    = brake.impulse; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.brake.impulse.mean...
+                    = mean(brake.impulse); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.brake.impulse.median...
+                    = median(brake.impulse); % median
+                All.(sub).(day).(con).(side).GRF.metrics.brake.impulse.std...
+                    = std(brake.impulse); % standard deviation
+                
+                % Braking total time
+                All.(sub).(day).(con).(side).GRF.metrics.brake.total_time.raw...
+                    = brake.time; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.brake.total_time.mean...
+                    = mean(brake.time); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.brake.total_time.median...
+                    = median(brake.time); % median
+                All.(sub).(day).(con).(side).GRF.metrics.brake.total_time.std...
+                    = std(brake.time); % standard deviation
+                
+                % Propulsion onset time
+                All.(sub).(day).(con).(side).GRF.metrics.prop.onset.raw...
+                    = prop.onset; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.prop.onset.mean...
+                    = mean(prop.onset); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.prop.onset.median...
+                    = median(prop.onset); % median
+                All.(sub).(day).(con).(side).GRF.metrics.prop.onset.std...
+                    = std(prop.onset); % standard deviation
+                
+                % Propulsion peak time
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_time.raw...
+                    = prop.peak.time; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_time.mean...
+                    = mean(prop.peak.time); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_time.median...
+                    = median(prop.peak.time); % median
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_time.std...
+                    = std(prop.peak.time); % standard deviation
+                
+                % Propulsion peak magnitude
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_mag.raw...
+                    = prop.peak.mag; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_mag.mean...
+                    = mean(prop.peak.mag); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_mag.median...
+                    = median(prop.peak.mag); % median
+                All.(sub).(day).(con).(side).GRF.metrics.prop.peak_mag.std...
+                    = std(prop.peak.mag); % standard deviation
+                
+                % Propulsion impulse
+                All.(sub).(day).(con).(side).GRF.metrics.prop.impulse.raw...
+                    = prop.impulse; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.prop.impulse.mean...
+                    = mean(prop.impulse); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.prop.impulse.median...
+                    = median(prop.impulse); % median
+                All.(sub).(day).(con).(side).GRF.metrics.prop.impulse.std...
+                    = std(prop.impulse); % standard deviation
+                
+                % Propulsion total time
+                All.(sub).(day).(con).(side).GRF.metrics.prop.total_time.raw...
+                    = prop.time; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.prop.total_time.mean...
+                    = mean(prop.time); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.prop.total_time.median...
+                    = median(prop.time); % median
+                All.(sub).(day).(con).(side).GRF.metrics.prop.total_time.std...
+                    = std(prop.time); % standard deviation
+                
+                % Time b/w peaks
+                All.(sub).(day).(con).(side).GRF.metrics.bw.time.raw...
+                    = time_bw; % raw data
+                All.(sub).(day).(con).(side).GRF.metrics.bw.time.mean...
+                    = mean(time_bw); % mean
+                All.(sub).(day).(con).(side).GRF.metrics.bw.time.median...
+                    = median(time_bw); % median
+                All.(sub).(day).(con).(side).GRF.metrics.bw.time.std...
+                    = std(time_bw); % standard deviation
+                
+                
+                %% Clear all variables
+                
+                clear obj prop brake time_bw section pos neg rise run slope chy...
+                    prchy chx cross
+                
+            end
+             
+        end
+        
+    end
+    
+end
+
+
+
+
+%% Save
+save('All.mat', 'All')
+
+
+\end{lstlisting}
+\pagebreak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
