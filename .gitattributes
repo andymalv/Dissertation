@@ -1,2 +1,2 @@
 # Ignore LaTeX files for language stats
-*.tex linguist-language=
+*.tex linguist-generated=true
